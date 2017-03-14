@@ -1,0 +1,36 @@
+{% extends 'employee/transfer_detail.html' %}
+{% load bootstrap %}
+{% block content_box2 %}
+       <div class="modal fade" id="change_modal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="$(function() {
+                            window.location.href='{% url 'EMPLOYEE:TRANSFER_DETAIL' transfer_order.transfer_number  %}'
+                            });">
+                        <span aria-hidden="true">×</span></button>
+                    <h4 class="modal-title">{% block form-title %}修改{% endblock %}</h4>
+                </div>
+                <form method="post" class="form-horizontal " enctype="multipart/form-data">
+                    <div class="modal-body">
+                        {{ form|bootstrap_horizontal }}
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default pull-left" data-dismiss="modal" onclick="$(function() {
+                                window.location.href='{% url 'EMPLOYEE:TRANSFER_DETAIL' transfer_order.transfer_number  %}'
+                                });">取消</button>
+                        <input type="submit" value="确定" class="btn btn-primary " name="save_and_reutrn"/>
+                    </div>
+                </form>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <script>
+        $(document).ready(function(){
+            $('#change_modal').modal('show');
+        })
+    </script>
+{% endblock %}

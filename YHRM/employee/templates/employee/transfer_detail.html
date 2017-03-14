@@ -1,0 +1,205 @@
+{% extends 'employee/employee.html' %}
+{% load debugtools_tags static %}
+{% block content_header_small %}员工档案{% endblock %}
+{% block content_breadcrumb_li %}
+    <li class=""><a href="{% url 'BP_INDEX' %}">控制台</a></li>
+    <li class=""><a href="{% url 'EMPLOYEE:TRANSFER_LIST' %}">调令表</a></li>
+    <li class="active">员工调令</li>
+{% endblock %}
+{% block content_box1 %}
+    <div class="row">
+        <div class="row">
+            <div class="col-md-4">
+                <!-- Profile Image -->
+                <div class="box box-primary" >
+                    <div class="box-body box-profile" style="text-align: center">
+                        <div class="row">
+                            <div class="btn-group  col-md-8 col-md-offset-2 " style="text-align: center">
+                                <button id="employeeProfileEditInfo" class="btn  btn-warning  btn-block" type="button"
+                                        onclick="$(function() {window.location.href='{% url 'EMPLOYEE:TRANSFER_DETAIL_CHANGE' transfer_order.transfer_number%}'});"
+                                ><i class="fa fa-edit"></i>修改调令</button>
+                                {% if not transfer_order.confirm %}<button id="employeeUploadProfileImage"  class="btn   btn-primary btn-block " type="button"
+                                                                           onclick="$(function() { window.location.href='{% url 'EMPLOYEE:TRANSFER_ORDER_SYNCHRO' transfer_order.transfer_number %}'});"
+                                ><i class="fa fa-pencil"></i>同步调令到个人信息</button>
+                                {% else %}
+                                    <button id="employeeUploadProfileImage"  class="btn   btn-primary btn-block " type="button"
+                                            onclick="$(function() { window.location.href='{% url 'EMPLOYEE:TRANSFER_ORDER_SYNCHRO_BACK' transfer_order.transfer_number %}'});"
+                                    ><i class="fa fa-eraser"></i>撤销同步</button>
+                                {% endif %}
+                                <button id="employeeDeleteProfileImage" class="btn  btn-danger btn-block  " type="button"
+                                        onclick="$(function() { window.location.href='{% url 'EMPLOYEE:TRANSFER_ORDER_DELETE' transfer_order.transfer_number %}'});"
+                                ><i class="fa fa-trash"></i> 删除调令</button>
+                                <button id="employeeDeleteProfileImage" class="btn  btn-success btn-block  " type="button"
+                                        onclick="$(function() { window.location.href='{% url 'EMPLOYEE:TRANSFER_ORDER_DOC' transfer_order.transfer_number %}'});"
+                                ><i class="fa fa-download"></i> 生成调令文档</button>
+                            </div>
+                        </div></div>
+                    <!-- /.box-body -->
+                </div>
+                <!-- /.box -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <div class="row">
+            <div class="col-md-6" style="">
+                <div class=" box box-primary" >
+                    <div class="row-fluid" style="margin-bottom: 3px;border-top: 1px;">
+                        <div class="row">
+                            <div class="col-xs-12" style="font-size:30px;">
+                                <label class="control-label col-xs-12" >调令信息</label>
+                            </div></div>
+                        <div class="row">
+                            <div class="col-xs-4" style="font-size:16px;">
+                                <label class="control-label col-xs-12" style="font-size:16px;">调令编号:</label>
+                                <label class="control-label col-xs-12 iceLabel" style="font-size:13px;font-weight: lighter;" id="employee_identification_card">{{ transfer_order.transfer_number }}</label>
+                            </div>
+
+                            <div class="col-xs-4" style="font-size:16px;">
+                                <label class="control-label col-xs-12" style="font-size:16px;">员工编号:</label>
+                                <label class="control-label col-xs-12 iceLabel" style="font-size:13px;font-weight: lighter;" id="employee_id">{{transfer_order.employee.employee_number }}</label>
+                            </div>
+                            <div class="col-xs-4" style="font-size:16px;">
+                                <label class="control-label col-xs-12" style="font-size:16px;">员工姓名:</label>
+                                <label class="control-label col-xs-12 iceLabel" style="font-size:13px;font-weight: lighter;" id="employee_identification_card">{{ transfer_order.employee.name }}</label>
+                            </div>
+                            <div class="col-xs-4" style="font-size:16px;">
+                                <label class="control-label col-xs-12" style="font-size:16px;">原部门:</label>
+                                <label class="control-label col-xs-12 iceLabel" style="font-size:13px;font-weight: lighter;" id="employee_gender">{{ transfer_order.old_department.name }}</label>
+                            </div>
+                            <div class="col-xs-4" style="font-size:16px;">
+                                <label class="control-label col-xs-12" style="font-size:16px;">原岗位:</label>
+                                <label class="control-label col-xs-12 iceLabel" style="font-size:13px;font-weight: lighter;" id="employee_gender">{{ transfer_order.old_job }}</label>
+                            </div>
+                            <div class="col-xs-4" style="font-size:16px;">
+                                <label class="control-label col-xs-12" style="font-size:16px;">现部门:</label>
+                                <label class="control-label col-xs-12 iceLabel" style="font-size:13px;font-weight: lighter;" id="employee_nationality">{{ transfer_order.new_department }}</label>
+                            </div>
+                            <div class="col-xs-4" style="font-size:16px;">
+                                <label class="control-label col-xs-12" style="font-size:16px;">现岗位:</label>
+                                <label class="control-label col-xs-12 iceLabel" style="font-size:13px;font-weight: lighter;" id="employee_nationality">{{ transfer_order.new_job }}</label>
+                            </div>
+                            <div class="col-xs-4" style="font-size:16px;">
+                                <label class="control-label col-xs-12" style="font-size:16px;">调动日期:</label>
+                                <label class="control-label col-xs-12 iceLabel" style="font-size:13px;font-weight: lighter;" id="employee_birthday">{% if transfer_order.transfer_date %}{{ transfer_order.transfer_date}}{% endif    %}</label>
+                            </div>
+                            <div class="col-xs-4" style="font-size:16px;">
+                                <label class="control-label col-xs-12" style="font-size:16px;">新单位起薪日期:</label>
+                                <label class="control-label col-xs-12 iceLabel" style="font-size:13px;font-weight: lighter;" id="employee_birthday">{% if transfer_order.new_department_salary_calculate_start_date %}{{ transfer_order.new_department_salary_calculate_start_date}}{% endif    %}</label>
+                            </div>
+                            <div class="col-xs-4" style="font-size:16px;">
+                                <label class="control-label col-xs-12" style="font-size:16px;">同步到个人信息:</label>
+                                <label class="control-label col-xs-12 iceLabel" style="font-size:13px;font-weight: lighter;" id=" employee_political_status">{% if transfer_order.confirm %}已同步{% else %}未同步{% endif %}</label>
+                            </div>
+                            <div class="col-xs-12" style="font-size:16px;">
+                                <br>
+                                <h3><strong>调动原因</strong></h3>
+                                <h4>{{ transfer_order.transfer_reason }}</h4>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- /.nav-tabs-custom -->
+            </div>
+        </div>
+
+    </div>
+    <!-- /.col -->
+
+{% endblock %}
+{% block content_box2 %}
+    <div class="modal fade modal-warning" id="change_modal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span></button>
+                    <h4 class="modal-title">同步/撤销同步</h4>
+                </div>
+                <form method="post" class="form-horizontal " enctype="multipart/form-data">
+                    <div class="modal-body">
+                        <h3>本条调令不是该员工最新调令，请选择最新调令进行同步、撤销同步或删除操作！！！</h3>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default pull-left" data-dismiss="modal" >取消</button>
+                        <button type="button" class="btn btn-primary " data-dismiss="modal" >确定</button>
+                    </div>
+                </form>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <script>
+        {% if show %}
+            $(document).ready(function(){
+                $('#change_modal').modal('show');
+            })
+        {% endif %}
+    </script>
+{% endblock %}
+{% block content_box3 %}
+    <div class="modal fade modal-warning" id="delete_modal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span></button>
+                    <h4 class="modal-title">删除调令</h4>
+                </div>
+                <form method="post" class="form-horizontal " enctype="multipart/form-data">
+                    <div class="modal-body">
+                        <h3>本条调已同步，请撤销同步后删除！！！</h3>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default pull-left" data-dismiss="modal" >取消</button>
+                        <button type="button" class="btn btn-primary " data-dismiss="modal" >确定</button>
+                    </div>
+                </form>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <script>
+        {% if delete %}
+            $(document).ready(function(){
+                $('#delete_modal').modal('show');
+            })
+        {% endif %}
+    </script>
+{% endblock %}
+{% block content_box4 %}
+    <div class="modal fade modal-warning" id="synchro_modal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span></button>
+                    <h4 class="modal-title">修改调令</h4>
+                </div>
+                <form method="post" class="form-horizontal " enctype="multipart/form-data">
+                    <div class="modal-body">
+                        <h3>本条调已同步，请撤销同步后修改！！！</h3>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default pull-left" data-dismiss="modal" >取消</button>
+                        <button type="button" class="btn btn-primary " data-dismiss="modal" >确定</button>
+                    </div>
+                </form>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <script>
+        {% if synchro %}
+            $(document).ready(function(){
+                $('#synchro_modal').modal('show');
+            })
+        {% endif %}
+    </script>
+{% endblock %}

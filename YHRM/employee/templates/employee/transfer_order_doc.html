@@ -1,0 +1,227 @@
+{% extends 'employee/employee.html' %}
+{% load static %}
+{% block content_header %}调令管理{% endblock %}
+{% block content_header_small %}调令预览{% endblock %}
+{% block content_breadcrumb_li %}
+    <li class=""><a href="{% url 'BP_INDEX' %}">控制台</a></li>
+    <li class=""><a href="{% url 'EMPLOYEE:TRANSFER_LIST' %}">调令表</a></li>
+    <li class=""><a href="{% url 'EMPLOYEE:TRANSFER_DETAIL' transfer_order.transfer_number %}">员工调令</a></li>
+    <li class="active">调令预览</li>
+{% endblock %}
+{% block content_box1 %}
+    <div class="col-md-9">
+        <!-- Profile Image -->
+        {#        http://docpe.pdfdowell.com/word/word-to-html.aspx#}
+        <div class="box box-primary ">
+            <div class="box-body box-profile">
+                <div class="row">
+                    <div class="col-md-9">
+                        <a class="btn btn-default jquery-word-export" href="javascript:void(0)">
+                            <span class="word-icon" style="font-family:Helvetica, sans-serif;font-size: 24px;font-weight:bold;background-color:#0054a6;color:white;padding:2px 5px;vertical-align: middle;">W</span>
+                            导出为.doc文档
+                        </a>
+                        <h1>《调令》</h1>
+                        <div id="pagecontent">
+                            <div>
+                                <p style="margin:0pt; orphans:0; text-align:center; widows:0"><span
+                                    style="font-family:宋体; font-size:24pt; font-weight:bold">内部</span><span
+                                    style="font-family:宋体; font-size:24pt; font-weight:bold">调动通知</span></p>
+                                <p style="margin:0pt; orphans:0; text-align:right; widows:0"><span
+                                        style="font-family:宋体; font-size:18pt; font-weight:bold">No.</span><span
+                                        style="font-family:宋体; font-size:18pt; font-weight:bold">{{ transfer_order.transfer_number }}</span></p>
+                                <p style="margin:0pt; orphans:0; widows:0"><span style="font-family:宋体; font-size:16pt">{{ transfer_order.employee.department.name }}</span><span
+                                        style="font-family:宋体; font-size:16pt">：</span></p>
+                                <p style="line-height:16pt; margin:0pt; orphans:0; text-indent:36pt; widows:0"><span
+                                        style="font-family:宋体; font-size:16pt">经研究，下列人员到商行人力资源部另行安排工作，报到时间为</span><span
+                                        style="font-family:宋体; font-size:16pt">{{ transfer_order.new_department_salary_calculate_start_date }}</span><span
+                                        style="font-family:宋体; font-size:16pt">。</span></p>
+                                <table cellspacing="0" cellpadding="0"
+                                       style="border-collapse:collapse; margin-left:0pt; width:461.5pt">
+                                    <tbody>
+                                    <tr style="height:49.15pt">
+                                        <td style="border: 0.75pt solid #000000;padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:53.05pt">
+                                            <p style="margin:0pt; orphans:0; text-align:center; widows:0"><span
+                                                    style="font-family:宋体; font-size:14pt; font-weight:bold">姓名</span>
+                                            </p></td>
+                                        <td style="border: 0.75pt solid #000000;padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:29.7pt">
+                                            <p style="margin:0pt; orphans:0; text-align:center; widows:0"><span
+                                                    style="font-family:宋体; font-size:14pt; font-weight:bold">性别</span>
+                                            </p></td>
+                                        <td style="border: 0.75pt solid #000000;padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:62.1pt">
+                                            <p style="margin:0pt; orphans:0; text-align:center; widows:0"><span
+                                                    style="font-family:宋体; font-size:14pt; font-weight:bold">调出单位</span>
+                                            </p></td>
+                                        <td style="border: 0.75pt solid #000000;padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:48.55pt">
+                                            <p style="line-height:14pt; margin:0pt; orphans:0; text-align:center; widows:0">
+                                                <span style="font-family:宋体; font-size:14pt; font-weight:bold">职务</span><span
+                                                    style="font-family:宋体; font-size:14pt; font-weight:bold">/</span><span
+                                                    style="font-family:宋体; font-size:14pt; font-weight:bold">岗位</span>
+                                            </p></td>
+                                        <td style="border: 0.75pt solid #000000;padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:62.4pt">
+                                            <p style="line-height:14pt; margin:0pt; orphans:0; text-align:center; widows:0">
+                                                <span style="font-family:宋体; font-size:14pt; font-weight:bold">分配单位</span>
+                                            </p></td>
+                                        <td style="border: 0.75pt solid #000000;padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:49.35pt">
+                                            <p style="line-height:14pt; margin:0pt; orphans:0; text-align:center; widows:0">
+                                                <span style="font-family:宋体; font-size:14pt; font-weight:bold">职务/</span>
+                                            </p>
+                                            <p style="line-height:14pt; margin:0pt; orphans:0; text-align:center; widows:0">
+                                                <span style="font-family:宋体; font-size:14pt; font-weight:bold">岗位</span>
+                                            </p></td>
+                                        <td style="border: 0.75pt solid #000000;padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:80pt">
+                                            <p style="line-height:14pt; margin:0pt; orphans:0; text-align:center; widows:0">
+                                                <span style="font-family:宋体; font-size:14pt; font-weight:bold">在新单位</span>
+                                            </p>
+                                            <p style="line-height:14pt; margin:0pt; orphans:0; text-align:center; widows:0">
+                                                <span style="font-family:宋体; font-size:14pt; font-weight:bold">起薪时间</span>
+                                            </p></td>
+                                    </tr>
+                                    <tr style="height:35.9pt">
+                                        <td style="border: 0.75pt solid #000000;padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:53.05pt">
+                                            <p style="margin:0pt; orphans:0; text-align:center; widows:0"><span
+                                                    style="font-family:宋体; font-size:12pt">{{ transfer_order.employee.name }}</span></p></td>
+                                        <td style="border: 0.75pt solid #000000;padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:29.7pt">
+                                            <p style="margin:0pt; orphans:0; text-align:center; widows:0"><span
+                                                    style="font-family:宋体; font-size:12pt">{{ transfer_order.employee.gender }}</span></p></td>
+                                        <td style="border: 0.75pt solid #000000;padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:62.1pt">
+                                            <p style="margin:0pt; orphans:0; text-align:center; widows:0"><span
+                                                    style="font-family:宋体; font-size:12pt">{{ transfer_order.employee.department }}</span></p></td>
+                                        <td style="border: 0.75pt solid #000000;padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:48.55pt">
+                                            <p style="margin:0pt; orphans:0; text-align:center; widows:0"><span
+                                                    style="font-family:宋体; font-size:12pt">{{ transfer_order.employee.job }}</span></p></td>
+                                        <td style="border: 0.75pt solid #000000;padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:62.4pt">
+                                            <p style="margin:0pt; orphans:0; text-align:center; widows:0"><span
+                                                    style="font-family:宋体; font-size:12pt">{{ transfer_order.new_department }}</span></p></td>
+                                        <td style="border: 0.75pt solid #000000;padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:49.35pt">
+                                            <p style="margin:0pt; orphans:0; text-align:center; widows:0"><span
+                                                    style="font-family:宋体; font-size:12pt">{{ transfer_order.new_job }}</span></p></td>
+                                        <td style="border: 0.75pt solid #000000;padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:80pt">
+                                            <p style="margin:0pt; orphans:0; text-align:center; widows:0"><span
+                                                    style="font-family:宋体; font-size:12pt">{{ transfer_order.new_department_salary_calculate_start_date }}</span></p></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                                <p style="margin:0pt; orphans:0; text-indent:25pt; widows:0"><span
+                                        style="font-family:宋体; font-size:16pt">经办：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+                                        style="font-family:宋体; font-size:16pt">部门总经理</span><span
+                                        style="font-family:宋体; font-size:16pt">：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 签批：</span>
+                                </p>
+                                <p style="margin:0pt; orphans:0; text-align:right; widows:0"><span
+                                        style="font-family:宋体; font-size:16pt; font-weight:bold">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+                                        style="font-family:宋体; font-size:16pt"> </span></p>
+                                <p style="margin:0pt; orphans:0; text-align:right; widows:0"><span
+                                        style="font-family:宋体; font-size:16pt">{{ today }}</span></p>
+                                <p style="margin:0pt; orphans:0; widows:0">
+                                    <span
+                                            style="font-family:宋体; font-size:10.5pt; font-weight:bold; text-decoration:underline">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
+                                </p>
+                                <p style="margin:0pt; orphans:0; text-align:center; widows:0"><span
+                                        style="font-family:宋体; font-size:24pt; font-weight:bold">内部</span><span
+                                        style="font-family:宋体; font-size:24pt; font-weight:bold">调动通知</span></p>
+                                <p style="margin:0pt; orphans:0; text-align:right; widows:0"><span
+                                        style="font-family:宋体; font-size:18pt; font-weight:bold">No.</span><span
+                                        style="font-family:宋体; font-size:18pt; font-weight:bold">{{ transfer_order.transfer_number }}</span></p>
+                                <p style="margin:0pt; orphans:0; widows:0"><span style="font-family:宋体; font-size:16pt">{{ transfer_order.employee.department.name }}</span><span
+                                        style="font-family:宋体; font-size:16pt">：</span></p>
+                                <p style="line-height:16pt; margin:0pt; orphans:0; text-indent:36pt; widows:0"><span
+                                        style="font-family:宋体; font-size:16pt">经研究，下列人员到商行人力资源部另行安排工作，报到时间为</span><span
+                                        style="font-family:宋体; font-size:16pt">{{ transfer_order.new_department_salary_calculate_start_date }}</span><span
+                                        style="font-family:宋体; font-size:16pt">。</span></p>
+                                <table cellspacing="0" cellpadding="0"
+                                       style="border-collapse:collapse; margin-left:0pt; width:461.5pt">
+                                    <tbody>
+                                    <tr style="height:49.15pt">
+                                        <td style="border: 0.75pt solid #000000;padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:53.05pt">
+                                            <p style="margin:0pt; orphans:0; text-align:center; widows:0"><span
+                                                    style="font-family:宋体; font-size:14pt; font-weight:bold">姓名</span>
+                                            </p></td>
+                                        <td style="border: 0.75pt solid #000000;padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:29.7pt">
+                                            <p style="margin:0pt; orphans:0; text-align:center; widows:0"><span
+                                                    style="font-family:宋体; font-size:14pt; font-weight:bold">性别</span>
+                                            </p></td>
+                                        <td style="border: 0.75pt solid #000000;padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:62.1pt">
+                                            <p style="margin:0pt; orphans:0; text-align:center; widows:0"><span
+                                                    style="font-family:宋体; font-size:14pt; font-weight:bold">调出单位</span>
+                                            </p></td>
+                                        <td style="border: 0.75pt solid #000000;padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:48.55pt">
+                                            <p style="line-height:14pt; margin:0pt; orphans:0; text-align:center; widows:0">
+                                                <span style="font-family:宋体; font-size:14pt; font-weight:bold">职务</span><span
+                                                    style="font-family:宋体; font-size:14pt; font-weight:bold">/</span><span
+                                                    style="font-family:宋体; font-size:14pt; font-weight:bold">岗位</span>
+                                            </p></td>
+                                        <td style="border: 0.75pt solid #000000;padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:62.4pt">
+                                            <p style="line-height:14pt; margin:0pt; orphans:0; text-align:center; widows:0">
+                                                <span style="font-family:宋体; font-size:14pt; font-weight:bold">分配单位</span>
+                                            </p></td>
+                                        <td style="border: 0.75pt solid #000000;padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:49.35pt">
+                                            <p style="line-height:14pt; margin:0pt; orphans:0; text-align:center; widows:0">
+                                                <span style="font-family:宋体; font-size:14pt; font-weight:bold">职务/</span>
+                                            </p>
+                                            <p style="line-height:14pt; margin:0pt; orphans:0; text-align:center; widows:0">
+                                                <span style="font-family:宋体; font-size:14pt; font-weight:bold">岗位</span>
+                                            </p></td>
+                                        <td style="border: 0.75pt solid #000000;padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:80pt">
+                                            <p style="line-height:14pt; margin:0pt; orphans:0; text-align:center; widows:0">
+                                                <span style="font-family:宋体; font-size:14pt; font-weight:bold">在新单位</span>
+                                            </p>
+                                            <p style="line-height:14pt; margin:0pt; orphans:0; text-align:center; widows:0">
+                                                <span style="font-family:宋体; font-size:14pt; font-weight:bold">起薪时间</span>
+                                            </p></td>
+                                    </tr>
+                                    <tr style="height:35.9pt">
+                                        <td style="border: 0.75pt solid #000000;padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:53.05pt">
+                                            <p style="margin:0pt; orphans:0; text-align:center; widows:0"><span
+                                                    style="font-family:宋体; font-size:12pt">{{ transfer_order.employee.name }}</span></p></td>
+                                        <td style="border: 0.75pt solid #000000;padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:29.7pt">
+                                            <p style="margin:0pt; orphans:0; text-align:center; widows:0"><span
+                                                    style="font-family:宋体; font-size:12pt">{{ transfer_order.employee.gender }}</span></p></td>
+                                        <td style="border: 0.75pt solid #000000;padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:62.1pt">
+                                            <p style="margin:0pt; orphans:0; text-align:center; widows:0"><span
+                                                    style="font-family:宋体; font-size:12pt">{{ transfer_order.employee.department }}</span></p></td>
+                                        <td style="border: 0.75pt solid #000000;padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:48.55pt">
+                                            <p style="margin:0pt; orphans:0; text-align:center; widows:0"><span
+                                                    style="font-family:宋体; font-size:12pt">{{ transfer_order.employee.job }}</span></p></td>
+                                        <td style="border: 0.75pt solid #000000;padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:62.4pt">
+                                            <p style="margin:0pt; orphans:0; text-align:center; widows:0"><span
+                                                    style="font-family:宋体; font-size:12pt">{{ transfer_order.new_department }}</span></p></td>
+                                        <td style="border: 0.75pt solid #000000;padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:49.35pt">
+                                            <p style="margin:0pt; orphans:0; text-align:center; widows:0"><span
+                                                    style="font-family:宋体; font-size:12pt">{{ transfer_order.new_job }}</span></p></td>
+                                        <td style="border: 0.75pt solid #000000;padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:80pt">
+                                            <p style="margin:0pt; orphans:0; text-align:center; widows:0"><span
+                                                    style="font-family:宋体; font-size:12pt">{{ transfer_order.new_department_salary_calculate_start_date }}</span></p></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                                <p style="margin:0pt; orphans:0; text-indent:25pt; widows:0"><span
+                                        style="font-family:宋体; font-size:16pt">经办：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+                                        style="font-family:宋体; font-size:16pt">部门总经理</span><span
+                                        style="font-family:宋体; font-size:16pt">：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 签批：</span>
+                                </p>
+                                <p style="margin:0pt; orphans:0; text-align:right; widows:0"><span
+                                        style="font-family:宋体; font-size:16pt; font-weight:bold">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+                                        style="font-family:宋体; font-size:16pt"> </span></p>
+                                <p style="margin:0pt; orphans:0; text-align:right; widows:0"><span
+                                        style="font-family:宋体; font-size:16pt">{{ today }}</span></p>
+                                <p style="margin:0pt; orphans:0; text-align:right; widows:0"><span
+                                        style="font-family:宋体; font-size:16pt">&nbsp;</span></p></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.box-body -->
+            </div>
+            <!-- /.box -->
+            <br/>
+        </div>
+
+        <script type="text/javascript" src="{% static 'base_site/plugins/jQuery/FileSaver.js' %}"></script>
+        <script type="text/javascript" src="{% static 'base_site/plugins/jQuery/jquery.wordexport.js' %}"></script>
+
+        <script type="text/javascript">
+            jQuery(document).ready(function ($) {
+                $("a.jquery-word-export").click(function (event) {
+                    $("#pagecontent").wordExport(fileName = '第{% if transfer_order.transfer_number %}{{ transfer_order.transfer_number }}{% endif %}号员工调令：{% if transfer_order.employee.name %}{{ transfer_order.employee.name }}{% endif %}');
+                });
+            });
+        </script>
+{% endblock %}

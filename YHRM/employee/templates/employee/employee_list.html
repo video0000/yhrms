@@ -1,0 +1,65 @@
+{% extends 'employee/employee.html' %}
+{% load table_tags bootstrap %}
+{% block content_box1 %}
+    <div class="box">
+        <div class="box-header">
+            <h3 class="box-title">{% block table-title %}员工花名册{% endblock %}</h3>
+            <br/><br/>
+
+            <div class="btn-group ">
+                <button value="export" class="btn btn-primary btn-small btn-flat" onclick="tableExport('员工花名册','员工花名册','xls')" >下载报表<i class=" glyphicon glyphicon-save"></i></button>
+                <button value="filters" class="btn btn-primary btn-small btn-flat" id="filters" onclick="  $(function() {
+            $('#filter_modal').modal('show')
+        });">综合筛选<i class="fa fa-filter"></i></button>
+
+                {% if filters.data.values %}<button class="btn btn-small btn-flat" id="filters_conditions" onclick="$(function() {
+                        window.location.href='{% url 'EMPLOYEE:EMPLOYEE_LIST'  %}'
+                        });">
+                    筛选:
+                    {% for i in filters.form %}
+                        {% if i.value  %} &nbsp{{ i.label }}={{ i.value }}{% endif %}
+                    {% endfor %}&nbsp
+                    <i class="fa fa-close"></i>
+                </button>
+                {% endif %}
+            </div>
+        </div>
+
+
+        <!-- /.box-header -->
+        <div class="box-body">
+            <div class="dataTables_wrapper form-inline dt-bootstrap">
+                <div class="row">
+                    <div class="col-lg-11 col-md-11 col-xs-11">
+                        {% render_table table %}
+
+                    </div>
+                </div>
+                <!-- /.box-body -->
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="filter_modal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span></button>
+                    <h4 class="modal-title">筛选</h4>
+                </div>
+                <form method="get" class="form-horizontal " id="filter_form">
+                    <div class="modal-body">
+                        {{ filters.form|bootstrap_horizontal }}
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default pull-left" data-dismiss="modal">取消</button>
+                        <input type="submit" class="btn btn-primary" value="确定" />
+                    </div>
+                </form>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+{% endblock %}

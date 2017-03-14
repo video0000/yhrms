@@ -1,0 +1,28 @@
+{% extends 'department/department_detail.html' %}
+{% load bootstrap %}
+{% block content_box2 %}
+
+    <div class="col-lg-5 col-md-7 ">
+        <div class="box box-primary">
+            <div class="box-header with-border">
+                <h3 class="box-title">{% block change_title %}修改机构资料{% endblock %}</h3>
+            </div>
+            <!-- /.box-header -->
+            <!-- form start -->
+             <form  role="form" method="post" enctype="multipart/form-data" class="" >
+                {% csrf_token %}
+                <div class="box-body">
+
+                    {{ form|bootstrap }}
+                </div>
+                <!-- /.box-body -->
+                <div class="box-footer ">
+                    <div class="btn-group pull-right ">
+                        <input type="submit" value="确认修改该" class="btn btn-primary" id="submit">
+                        <a href="{% url 'BP_MYPROFILE' %}"><input type="button" value="取消" class="btn "></a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

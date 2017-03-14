@@ -1,0 +1,57 @@
+{% extends 'employee/employee.html' %}
+{% load table_tags bootstrap %}
+{% block content_header %}休假管理{% endblock %}
+{% block content_header_small %}休假表{% endblock %}
+{% block content_breadcrumb_li %}
+    <li class=""><a href="{% url 'BP_INDEX' %}">控制台</a></li>
+    <li class="active">休假表</li>
+{% endblock %}
+{% block content_box1 %}
+ <div class="box">
+        <div class="box-header">
+            <h3 class="box-title">员工休假表</h3>
+            <br/><br/>
+
+            <div class="btn-group ">
+                <button value="export" class="btn btn-primary btn-small btn-flat" onclick="tableExport('员工休假表','员工休假表','xls')" >下载报表<i class=" glyphicon glyphicon-save"></i></button>
+            </div>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body">
+            <div class="dataTables_wrapper form-inline dt-bootstrap">
+                <div class="row">
+                    <div class="col-lg-11 col-md-11 col-xs-11">
+                        {% render_table table2 %}
+
+                    </div>
+                </div>
+                <!-- /.box-body -->
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+{% block content_box2 %}
+ <div class="box">
+        <div class="box-header">
+            <h3 class="box-title">休假员工表</h3>
+            <br/><br/>
+            <div class="btn-group ">
+                <button value="export" class="btn btn-primary btn-small btn-flat" onclick="tableExport('休假员工表','休假员工表','xls')" >下载报表<i class=" glyphicon glyphicon-save"></i></button>
+            </div>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body">
+            <div class="dataTables_wrapper form-inline dt-bootstrap">
+                <div class="row">
+                    <div class="col-lg-11 col-md-11 col-xs-11">
+                        {% render_table table %}
+
+                    </div>
+                </div>
+                <!-- /.box-body -->
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

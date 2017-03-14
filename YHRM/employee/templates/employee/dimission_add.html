@@ -1,0 +1,39 @@
+{% extends 'employee/dimission_list.html' %}
+{% load bootstrap debugtools_tags %}
+{% block content_breadcrumb_li %}
+    <li class=""><a href="{% url 'BP_INDEX' %}">控制台</a></li>
+    <li class=""><a href="{% url 'EMPLOYEE:EMPLOYEE_LIST' %}">花名册</a></li>
+    <li class=""><a href="{% url 'EMPLOYEE:EMPLOYEE_DETAIL' employee.employee_number 'basic_information'%}">员工档案</a></li>
+    <li class="active"><a href="{% url 'EMPLOYEE:DIMISSION_ADD' employee.employee_number %}">离职登记</a></li>
+{% endblock %}
+{% block content_box3 %}
+    <div class="modal fade" id="change_modal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" >
+                        <span aria-hidden="true">×</span></button>
+                    <h4 class="modal-title">{% block form-title %}新增{% endblock %}</h4>
+                </div>
+                <form method="post" class="form-horizontal " enctype="multipart/form-data">
+                    <div class="modal-body">
+                        <p>离职人：{{ employee.name }}</p>
+                        {{ form|bootstrap_horizontal }}
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default pull-left" data-dismiss="modal">取消</button>
+                        <input type="submit" value="确定" class="btn btn-primary " name="save_and_reutrn"/>
+                    </div>
+                </form>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <script>
+        $(document).ready(function(){
+            $('#change_modal').modal('show');
+        })
+    </script>
+{% endblock %}

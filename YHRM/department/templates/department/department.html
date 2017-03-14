@@ -1,0 +1,8 @@
+{% extends 'base_site/list.html' %}
+{% load debugtools_tags bootstrap static%}
+{% block content_header %}机构管理{% endblock %}
+{% block content_header_small %}机构信息{% endblock %}
+{% block content_breadcrumb_li %}
+    <li class=""><a href="{% url 'BP_INDEX' %}">控制台</a></li>
+    <li class="active">机构列表</li>
+{% endblock %}

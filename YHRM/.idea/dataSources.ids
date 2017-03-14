@@ -1,0 +1,1832 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - yhrm@localhost" uuid="8f626194-35b1-46d6-85f0-f133b6d2acdc">
+    <database-info product="MySQL" version="5.7.13-log" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower"/>
+    <database-model serializer="dbm" rdbms="MYSQL" format-version="2.5">
+      <schema id="1" name="yhrm"/>
+      <table id="2" parent="1" name="auth_group"/>
+      <table id="3" parent="1" name="auth_group_permissions"/>
+      <table id="4" parent="1" name="auth_permission"/>
+      <table id="5" parent="1" name="base_site_userprofile"/>
+      <table id="6" parent="1" name="base_site_userprofile_groups"/>
+      <table id="7" parent="1" name="base_site_userprofile_user_permissions"/>
+      <table id="8" parent="1" name="department_department"/>
+      <table id="9" parent="1" name="department_historicaldepartment"/>
+      <table id="10" parent="1" name="django_admin_log"/>
+      <table id="11" parent="1" name="django_content_type"/>
+      <table id="12" parent="1" name="django_migrations"/>
+      <table id="13" parent="1" name="django_session"/>
+      <table id="14" parent="1" name="employee_contract"/>
+      <table id="15" parent="1" name="employee_dimission"/>
+      <table id="16" parent="1" name="employee_eduction"/>
+      <table id="17" parent="1" name="employee_employee"/>
+      <table id="18" parent="1" name="employee_historicalcontract"/>
+      <table id="19" parent="1" name="employee_historicaldimission"/>
+      <table id="20" parent="1" name="employee_historicaleduction"/>
+      <table id="21" parent="1" name="employee_historicalemployee"/>
+      <table id="22" parent="1" name="employee_historicalrelationship"/>
+      <table id="23" parent="1" name="employee_historicalremark"/>
+      <table id="24" parent="1" name="employee_historicaltransferorder"/>
+      <table id="25" parent="1" name="employee_historicalworkexperience"/>
+      <table id="26" parent="1" name="employee_relationship"/>
+      <table id="27" parent="1" name="employee_remark"/>
+      <table id="28" parent="1" name="employee_transferorder"/>
+      <table id="29" parent="1" name="employee_workexperience"/>
+      <table id="30" parent="1" name="leave_exchanging_holiday"/>
+      <table id="31" parent="1" name="leave_historicalleave"/>
+      <table id="32" parent="1" name="leave_holiday"/>
+      <table id="33" parent="1" name="leave_leave"/>
+      <table id="34" parent="1" name="report_builder_displayfield"/>
+      <table id="35" parent="1" name="report_builder_filterfield"/>
+      <table id="36" parent="1" name="report_builder_format"/>
+      <table id="37" parent="1" name="report_builder_report"/>
+      <table id="38" parent="1" name="report_builder_report_starred"/>
+      <column id="39" parent="2" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="40" parent="2" name="name">
+        <mandatory>1</mandatory>
+        <data-type>varchar(80)</data-type>
+      </column>
+      <index id="41" parent="2" name="name">
+        <columns>name</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="42" parent="2" name="name">
+        <columns>name</columns>
+        <underlying-index>name</underlying-index>
+      </key>
+      <key id="43" parent="2" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="44" parent="3" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="45" parent="3" name="group_id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="46" parent="3" name="permission_id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <index id="47" parent="3" name="auth_group_permissi_permission_id_23962d04_fk_auth_permission_id">
+        <columns>permission_id</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <index id="48" parent="3" name="group_id">
+        <columns>group_id
+permission_id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="49" parent="3" name="group_id">
+        <columns>group_id
+permission_id</columns>
+        <underlying-index>group_id</underlying-index>
+      </key>
+      <key id="50" parent="3" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="51" parent="3" name="auth_group_permissions_group_id_58c48ba9_fk_auth_group_id">
+        <columns>group_id</columns>
+        <ref-key>~.auth_group.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="52" parent="3" name="auth_group_permissi_permission_id_23962d04_fk_auth_permission_id">
+        <columns>permission_id</columns>
+        <ref-key>~.auth_permission.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="53" parent="4" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="54" parent="4" name="name">
+        <mandatory>1</mandatory>
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="55" parent="4" name="content_type_id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="56" parent="4" name="codename">
+        <mandatory>1</mandatory>
+        <data-type>varchar(100)</data-type>
+      </column>
+      <index id="57" parent="4" name="content_type_id">
+        <columns>content_type_id
+codename</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="58" parent="4" name="content_type_id">
+        <columns>content_type_id
+codename</columns>
+        <underlying-index>content_type_id</underlying-index>
+      </key>
+      <key id="59" parent="4" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="60" parent="4" name="auth_permissi_content_type_id_51277a81_fk_django_content_type_id">
+        <columns>content_type_id</columns>
+        <ref-key>~.django_content_type.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="61" parent="5" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="62" parent="5" name="password">
+        <mandatory>1</mandatory>
+        <data-type>varchar(128)</data-type>
+      </column>
+      <column id="63" parent="5" name="last_login">
+        <data-type>datetime</data-type>
+      </column>
+      <column id="64" parent="5" name="is_superuser">
+        <mandatory>1</mandatory>
+        <data-type>tinyint(1)</data-type>
+      </column>
+      <column id="65" parent="5" name="username">
+        <mandatory>1</mandatory>
+        <data-type>varchar(30)</data-type>
+      </column>
+      <column id="66" parent="5" name="first_name">
+        <mandatory>1</mandatory>
+        <data-type>varchar(30)</data-type>
+      </column>
+      <column id="67" parent="5" name="last_name">
+        <mandatory>1</mandatory>
+        <data-type>varchar(30)</data-type>
+      </column>
+      <column id="68" parent="5" name="email">
+        <mandatory>1</mandatory>
+        <data-type>varchar(254)</data-type>
+      </column>
+      <column id="69" parent="5" name="is_staff">
+        <mandatory>1</mandatory>
+        <data-type>tinyint(1)</data-type>
+      </column>
+      <column id="70" parent="5" name="is_active">
+        <mandatory>1</mandatory>
+        <data-type>tinyint(1)</data-type>
+      </column>
+      <column id="71" parent="5" name="date_joined">
+        <mandatory>1</mandatory>
+        <data-type>datetime</data-type>
+      </column>
+      <column id="72" parent="5" name="name_cn">
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="73" parent="5" name="telephone">
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="74" parent="5" name="qq">
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="75" parent="5" name="avatar">
+        <data-type>varchar(100)</data-type>
+      </column>
+      <index id="76" parent="5" name="username">
+        <columns>username</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="77" parent="5" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <key id="78" parent="5" name="username">
+        <columns>username</columns>
+        <underlying-index>username</underlying-index>
+      </key>
+      <column id="79" parent="6" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="80" parent="6" name="userprofile_id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="81" parent="6" name="group_id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <index id="82" parent="6" name="base_site_userprofile_groups_group_id_299f1a73_fk_auth_group_id">
+        <columns>group_id</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <index id="83" parent="6" name="userprofile_id">
+        <columns>userprofile_id
+group_id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="84" parent="6" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <key id="85" parent="6" name="userprofile_id">
+        <columns>userprofile_id
+group_id</columns>
+        <underlying-index>userprofile_id</underlying-index>
+      </key>
+      <foreign-key id="86" parent="6" name="base_site_userprofile_groups_group_id_299f1a73_fk_auth_group_id">
+        <columns>group_id</columns>
+        <ref-key>~.auth_group.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="87" parent="6" name="base_site_us_userprofile_id_4450fb00_fk_base_site_userprofile_id">
+        <columns>userprofile_id</columns>
+        <ref-key>~.base_site_userprofile.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="88" parent="7" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="89" parent="7" name="userprofile_id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="90" parent="7" name="permission_id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <index id="91" parent="7" name="base_site_userprofi_permission_id_3313dd46_fk_auth_permission_id">
+        <columns>permission_id</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <index id="92" parent="7" name="userprofile_id">
+        <columns>userprofile_id
+permission_id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="93" parent="7" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <key id="94" parent="7" name="userprofile_id">
+        <columns>userprofile_id
+permission_id</columns>
+        <underlying-index>userprofile_id</underlying-index>
+      </key>
+      <foreign-key id="95" parent="7" name="base_site_userprofi_permission_id_3313dd46_fk_auth_permission_id">
+        <columns>permission_id</columns>
+        <ref-key>~.auth_permission.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="96" parent="7" name="base_site_us_userprofile_id_3ab9a8ba_fk_base_site_userprofile_id">
+        <columns>userprofile_id</columns>
+        <ref-key>~.base_site_userprofile.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="97" parent="8" name="department_number">
+        <mandatory>1</mandatory>
+        <data-type>varchar(20)</data-type>
+      </column>
+      <column id="98" parent="8" name="name">
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="99" parent="8" name="type">
+        <data-type>varchar(20)</data-type>
+      </column>
+      <column id="100" parent="8" name="address">
+        <data-type>varchar(200)</data-type>
+      </column>
+      <column id="101" parent="8" name="phone">
+        <data-type>varchar(20)</data-type>
+      </column>
+      <column id="102" parent="8" name="parent_structure_id">
+        <data-type>varchar(20)</data-type>
+      </column>
+      <index id="103" parent="8" name="eac32f82ac0c7b42b1ce716ece3bc454">
+        <columns>parent_structure_id</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="104" parent="8" name="PRIMARY">
+        <columns>department_number</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="105" parent="8" name="eac32f82ac0c7b42b1ce716ece3bc454">
+        <columns>parent_structure_id</columns>
+        <ref-key>PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="106" parent="9" name="department_number">
+        <mandatory>1</mandatory>
+        <data-type>varchar(20)</data-type>
+      </column>
+      <column id="107" parent="9" name="name">
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="108" parent="9" name="type">
+        <data-type>varchar(20)</data-type>
+      </column>
+      <column id="109" parent="9" name="address">
+        <data-type>varchar(200)</data-type>
+      </column>
+      <column id="110" parent="9" name="phone">
+        <data-type>varchar(20)</data-type>
+      </column>
+      <column id="111" parent="9" name="history_id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="112" parent="9" name="history_date">
+        <mandatory>1</mandatory>
+        <data-type>datetime</data-type>
+      </column>
+      <column id="113" parent="9" name="history_type">
+        <mandatory>1</mandatory>
+        <data-type>varchar(1)</data-type>
+      </column>
+      <column id="114" parent="9" name="history_user_id">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="115" parent="9" name="parent_structure_id">
+        <data-type>varchar(20)</data-type>
+      </column>
+      <index id="116" parent="9" name="department_historicaldepartment_51e8ade6">
+        <columns>department_number</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <index id="117" parent="9" name="department__history_user_id_4240786c_fk_base_site_userprofile_id">
+        <columns>history_user_id</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="118" parent="9" name="PRIMARY">
+        <columns>history_id</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="119" parent="9" name="department__history_user_id_4240786c_fk_base_site_userprofile_id">
+        <columns>history_user_id</columns>
+        <ref-key>~.base_site_userprofile.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="120" parent="10" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="121" parent="10" name="action_time">
+        <mandatory>1</mandatory>
+        <data-type>datetime</data-type>
+      </column>
+      <column id="122" parent="10" name="object_id">
+        <data-type>longtext</data-type>
+      </column>
+      <column id="123" parent="10" name="object_repr">
+        <mandatory>1</mandatory>
+        <data-type>varchar(200)</data-type>
+      </column>
+      <column id="124" parent="10" name="action_flag">
+        <mandatory>1</mandatory>
+        <data-type>smallint(5) unsigned</data-type>
+      </column>
+      <column id="125" parent="10" name="change_message">
+        <mandatory>1</mandatory>
+        <data-type>longtext</data-type>
+      </column>
+      <column id="126" parent="10" name="content_type_id">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="127" parent="10" name="user_id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <index id="128" parent="10" name="django_admin_log_user_id_1c5f563_fk_base_site_userprofile_id">
+        <columns>user_id</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <index id="129" parent="10" name="django_admin__content_type_id_5151027a_fk_django_content_type_id">
+        <columns>content_type_id</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="130" parent="10" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="131" parent="10" name="django_admin_log_user_id_1c5f563_fk_base_site_userprofile_id">
+        <columns>user_id</columns>
+        <ref-key>~.base_site_userprofile.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="132" parent="10" name="django_admin__content_type_id_5151027a_fk_django_content_type_id">
+        <columns>content_type_id</columns>
+        <ref-key>~.django_content_type.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="133" parent="11" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="134" parent="11" name="app_label">
+        <mandatory>1</mandatory>
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="135" parent="11" name="model">
+        <mandatory>1</mandatory>
+        <data-type>varchar(100)</data-type>
+      </column>
+      <index id="136" parent="11" name="django_content_type_app_label_3ec8c61c_uniq">
+        <columns>app_label
+model</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="137" parent="11" name="django_content_type_app_label_3ec8c61c_uniq">
+        <columns>app_label
+model</columns>
+        <underlying-index>django_content_type_app_label_3ec8c61c_uniq</underlying-index>
+      </key>
+      <key id="138" parent="11" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="139" parent="12" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="140" parent="12" name="app">
+        <mandatory>1</mandatory>
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="141" parent="12" name="name">
+        <mandatory>1</mandatory>
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="142" parent="12" name="applied">
+        <mandatory>1</mandatory>
+        <data-type>datetime</data-type>
+      </column>
+      <key id="143" parent="12" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="144" parent="13" name="session_key">
+        <mandatory>1</mandatory>
+        <data-type>varchar(40)</data-type>
+      </column>
+      <column id="145" parent="13" name="session_data">
+        <mandatory>1</mandatory>
+        <data-type>longtext</data-type>
+      </column>
+      <column id="146" parent="13" name="expire_date">
+        <mandatory>1</mandatory>
+        <data-type>datetime</data-type>
+      </column>
+      <index id="147" parent="13" name="django_session_de54fa62">
+        <columns>expire_date</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="148" parent="13" name="PRIMARY">
+        <columns>session_key</columns>
+        <primary>1</primary>
+      </key>
+      <column id="149" parent="14" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="150" parent="14" name="start_date">
+        <mandatory>1</mandatory>
+        <data-type>date</data-type>
+      </column>
+      <column id="151" parent="14" name="end_date">
+        <data-type>date</data-type>
+      </column>
+      <column id="152" parent="14" name="pdf">
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="153" parent="14" name="employee_id">
+        <mandatory>1</mandatory>
+        <data-type>varchar(20)</data-type>
+      </column>
+      <column id="154" parent="14" name="duration">
+        <mandatory>1</mandatory>
+        <data-type>varchar(50)</data-type>
+      </column>
+      <index id="155" parent="14" name="employ_employee_id_1f0bf6de_fk_employee_employee_employee_number">
+        <columns>employee_id</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="156" parent="14" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="157" parent="14" name="employ_employee_id_1f0bf6de_fk_employee_employee_employee_number">
+        <columns>employee_id</columns>
+        <ref-key>~.employee_employee.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="158" parent="15" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="159" parent="15" name="dimission_date">
+        <mandatory>1</mandatory>
+        <data-type>date</data-type>
+      </column>
+      <column id="160" parent="15" name="record_date">
+        <mandatory>1</mandatory>
+        <data-type>date</data-type>
+      </column>
+      <column id="161" parent="15" name="reason">
+        <mandatory>1</mandatory>
+        <data-type>longtext</data-type>
+      </column>
+      <column id="162" parent="15" name="employee_id">
+        <mandatory>1</mandatory>
+        <data-type>varchar(20)</data-type>
+      </column>
+      <index id="163" parent="15" name="employee_id">
+        <columns>employee_id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="164" parent="15" name="employee_id">
+        <columns>employee_id</columns>
+        <underlying-index>employee_id</underlying-index>
+      </key>
+      <key id="165" parent="15" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="166" parent="15" name="employ_employee_id_2a4fde34_fk_employee_employee_employee_number">
+        <columns>employee_id</columns>
+        <ref-key>~.employee_employee.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="167" parent="16" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="168" parent="16" name="start_date">
+        <mandatory>1</mandatory>
+        <data-type>date</data-type>
+      </column>
+      <column id="169" parent="16" name="end_date">
+        <mandatory>1</mandatory>
+        <data-type>date</data-type>
+      </column>
+      <column id="170" parent="16" name="qualification">
+        <mandatory>1</mandatory>
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="171" parent="16" name="degree">
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="172" parent="16" name="major">
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="173" parent="16" name="graduate_from">
+        <mandatory>1</mandatory>
+        <data-type>varchar(200)</data-type>
+      </column>
+      <column id="174" parent="16" name="type">
+        <mandatory>1</mandatory>
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="175" parent="16" name="employee_id">
+        <mandatory>1</mandatory>
+        <data-type>varchar(20)</data-type>
+      </column>
+      <index id="176" parent="16" name="employee_eduction_dcc97e32">
+        <columns>employee_id</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="177" parent="16" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="178" parent="16" name="employ_employee_id_7a55fd17_fk_employee_employee_employee_number">
+        <columns>employee_id</columns>
+        <ref-key>~.employee_employee.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="179" parent="17" name="employee_number">
+        <mandatory>1</mandatory>
+        <data-type>varchar(20)</data-type>
+      </column>
+      <column id="180" parent="17" name="name">
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="181" parent="17" name="atatar">
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="182" parent="17" name="gender">
+        <data-type>varchar(20)</data-type>
+      </column>
+      <column id="183" parent="17" name="nationality">
+        <data-type>varchar(10)</data-type>
+      </column>
+      <column id="184" parent="17" name="birthday">
+        <mandatory>1</mandatory>
+        <data-type>date</data-type>
+      </column>
+      <column id="185" parent="17" name="date_of_start_working">
+        <data-type>date</data-type>
+      </column>
+      <column id="186" parent="17" name="date_of_joined_bccb">
+        <data-type>date</data-type>
+      </column>
+      <column id="187" parent="17" name="employee_type">
+        <data-type>varchar(20)</data-type>
+      </column>
+      <column id="188" parent="17" name="titles">
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="189" parent="17" name="job">
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="190" parent="17" name="political_status">
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="191" parent="17" name="political_joined_date">
+        <data-type>date</data-type>
+      </column>
+      <column id="192" parent="17" name="identification_card">
+        <data-type>varchar(20)</data-type>
+      </column>
+      <column id="193" parent="17" name="home_address">
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="194" parent="17" name="department_id">
+        <data-type>varchar(20)</data-type>
+      </column>
+      <index id="195" parent="17" name="D81e2626d38a6d6bb70de445330cc4cd">
+        <columns>department_id</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="196" parent="17" name="PRIMARY">
+        <columns>employee_number</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="197" parent="17" name="D81e2626d38a6d6bb70de445330cc4cd">
+        <columns>department_id</columns>
+        <ref-key>~.department_department.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="198" parent="18" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="199" parent="18" name="start_date">
+        <mandatory>1</mandatory>
+        <data-type>date</data-type>
+      </column>
+      <column id="200" parent="18" name="end_date">
+        <data-type>date</data-type>
+      </column>
+      <column id="201" parent="18" name="pdf">
+        <data-type>longtext</data-type>
+      </column>
+      <column id="202" parent="18" name="history_id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="203" parent="18" name="history_date">
+        <mandatory>1</mandatory>
+        <data-type>datetime</data-type>
+      </column>
+      <column id="204" parent="18" name="history_type">
+        <mandatory>1</mandatory>
+        <data-type>varchar(1)</data-type>
+      </column>
+      <column id="205" parent="18" name="employee_id">
+        <data-type>varchar(20)</data-type>
+      </column>
+      <column id="206" parent="18" name="history_user_id">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="207" parent="18" name="duration">
+        <mandatory>1</mandatory>
+        <data-type>varchar(50)</data-type>
+      </column>
+      <index id="208" parent="18" name="employee_historicalcontract_b80bb774">
+        <columns>id</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <index id="209" parent="18" name="employee_hi_history_user_id_1e0bf3c2_fk_base_site_userprofile_id">
+        <columns>history_user_id</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="210" parent="18" name="PRIMARY">
+        <columns>history_id</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="211" parent="18" name="employee_hi_history_user_id_1e0bf3c2_fk_base_site_userprofile_id">
+        <columns>history_user_id</columns>
+        <ref-key>~.base_site_userprofile.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="212" parent="19" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="213" parent="19" name="dimission_date">
+        <mandatory>1</mandatory>
+        <data-type>date</data-type>
+      </column>
+      <column id="214" parent="19" name="record_date">
+        <mandatory>1</mandatory>
+        <data-type>date</data-type>
+      </column>
+      <column id="215" parent="19" name="reason">
+        <mandatory>1</mandatory>
+        <data-type>longtext</data-type>
+      </column>
+      <column id="216" parent="19" name="history_id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="217" parent="19" name="history_date">
+        <mandatory>1</mandatory>
+        <data-type>datetime</data-type>
+      </column>
+      <column id="218" parent="19" name="history_type">
+        <mandatory>1</mandatory>
+        <data-type>varchar(1)</data-type>
+      </column>
+      <column id="219" parent="19" name="employee_id">
+        <data-type>varchar(20)</data-type>
+      </column>
+      <column id="220" parent="19" name="history_user_id">
+        <data-type>int(11)</data-type>
+      </column>
+      <index id="221" parent="19" name="employee_historicaldimission_b80bb774">
+        <columns>id</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <index id="222" parent="19" name="employee_hi_history_user_id_24f532e0_fk_base_site_userprofile_id">
+        <columns>history_user_id</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="223" parent="19" name="PRIMARY">
+        <columns>history_id</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="224" parent="19" name="employee_hi_history_user_id_24f532e0_fk_base_site_userprofile_id">
+        <columns>history_user_id</columns>
+        <ref-key>~.base_site_userprofile.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="225" parent="20" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="226" parent="20" name="start_date">
+        <mandatory>1</mandatory>
+        <data-type>date</data-type>
+      </column>
+      <column id="227" parent="20" name="end_date">
+        <mandatory>1</mandatory>
+        <data-type>date</data-type>
+      </column>
+      <column id="228" parent="20" name="qualification">
+        <mandatory>1</mandatory>
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="229" parent="20" name="degree">
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="230" parent="20" name="major">
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="231" parent="20" name="graduate_from">
+        <mandatory>1</mandatory>
+        <data-type>varchar(200)</data-type>
+      </column>
+      <column id="232" parent="20" name="type">
+        <mandatory>1</mandatory>
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="233" parent="20" name="history_id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="234" parent="20" name="history_date">
+        <mandatory>1</mandatory>
+        <data-type>datetime</data-type>
+      </column>
+      <column id="235" parent="20" name="history_type">
+        <mandatory>1</mandatory>
+        <data-type>varchar(1)</data-type>
+      </column>
+      <column id="236" parent="20" name="employee_id">
+        <data-type>varchar(20)</data-type>
+      </column>
+      <column id="237" parent="20" name="history_user_id">
+        <data-type>int(11)</data-type>
+      </column>
+      <index id="238" parent="20" name="employee_historicaleduction_b80bb774">
+        <columns>id</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <index id="239" parent="20" name="employee_hi_history_user_id_1eec803d_fk_base_site_userprofile_id">
+        <columns>history_user_id</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="240" parent="20" name="PRIMARY">
+        <columns>history_id</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="241" parent="20" name="employee_hi_history_user_id_1eec803d_fk_base_site_userprofile_id">
+        <columns>history_user_id</columns>
+        <ref-key>~.base_site_userprofile.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="242" parent="21" name="employee_number">
+        <mandatory>1</mandatory>
+        <data-type>varchar(20)</data-type>
+      </column>
+      <column id="243" parent="21" name="name">
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="244" parent="21" name="atatar">
+        <data-type>longtext</data-type>
+      </column>
+      <column id="245" parent="21" name="gender">
+        <data-type>varchar(20)</data-type>
+      </column>
+      <column id="246" parent="21" name="nationality">
+        <data-type>varchar(10)</data-type>
+      </column>
+      <column id="247" parent="21" name="birthday">
+        <mandatory>1</mandatory>
+        <data-type>date</data-type>
+      </column>
+      <column id="248" parent="21" name="date_of_start_working">
+        <data-type>date</data-type>
+      </column>
+      <column id="249" parent="21" name="date_of_joined_bccb">
+        <data-type>date</data-type>
+      </column>
+      <column id="250" parent="21" name="employee_type">
+        <data-type>varchar(20)</data-type>
+      </column>
+      <column id="251" parent="21" name="titles">
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="252" parent="21" name="job">
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="253" parent="21" name="political_status">
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="254" parent="21" name="political_joined_date">
+        <data-type>date</data-type>
+      </column>
+      <column id="255" parent="21" name="identification_card">
+        <data-type>varchar(20)</data-type>
+      </column>
+      <column id="256" parent="21" name="home_address">
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="257" parent="21" name="history_id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="258" parent="21" name="history_date">
+        <mandatory>1</mandatory>
+        <data-type>datetime</data-type>
+      </column>
+      <column id="259" parent="21" name="history_type">
+        <mandatory>1</mandatory>
+        <data-type>varchar(1)</data-type>
+      </column>
+      <column id="260" parent="21" name="department_id">
+        <data-type>varchar(20)</data-type>
+      </column>
+      <column id="261" parent="21" name="history_user_id">
+        <data-type>int(11)</data-type>
+      </column>
+      <index id="262" parent="21" name="employee_historicalemployee_d7f3e4fe">
+        <columns>employee_number</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <index id="263" parent="21" name="employee_hi_history_user_id_7ac6ebb4_fk_base_site_userprofile_id">
+        <columns>history_user_id</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="264" parent="21" name="PRIMARY">
+        <columns>history_id</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="265" parent="21" name="employee_hi_history_user_id_7ac6ebb4_fk_base_site_userprofile_id">
+        <columns>history_user_id</columns>
+        <ref-key>~.base_site_userprofile.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="266" parent="22" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="267" parent="22" name="name">
+        <mandatory>1</mandatory>
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="268" parent="22" name="relation">
+        <mandatory>1</mandatory>
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="269" parent="22" name="birthday">
+        <data-type>date</data-type>
+      </column>
+      <column id="270" parent="22" name="political_status">
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="271" parent="22" name="graduate_from">
+        <data-type>varchar(200)</data-type>
+      </column>
+      <column id="272" parent="22" name="job">
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="273" parent="22" name="history_id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="274" parent="22" name="history_date">
+        <mandatory>1</mandatory>
+        <data-type>datetime</data-type>
+      </column>
+      <column id="275" parent="22" name="history_type">
+        <mandatory>1</mandatory>
+        <data-type>varchar(1)</data-type>
+      </column>
+      <column id="276" parent="22" name="employee_id">
+        <data-type>varchar(20)</data-type>
+      </column>
+      <column id="277" parent="22" name="history_user_id">
+        <data-type>int(11)</data-type>
+      </column>
+      <index id="278" parent="22" name="employee_historicalrelationship_b80bb774">
+        <columns>id</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <index id="279" parent="22" name="employee_his_history_user_id_56c0d8a_fk_base_site_userprofile_id">
+        <columns>history_user_id</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="280" parent="22" name="PRIMARY">
+        <columns>history_id</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="281" parent="22" name="employee_his_history_user_id_56c0d8a_fk_base_site_userprofile_id">
+        <columns>history_user_id</columns>
+        <ref-key>~.base_site_userprofile.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="282" parent="23" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="283" parent="23" name="remark">
+        <mandatory>1</mandatory>
+        <data-type>longtext</data-type>
+      </column>
+      <column id="284" parent="23" name="history_id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="285" parent="23" name="history_date">
+        <mandatory>1</mandatory>
+        <data-type>datetime</data-type>
+      </column>
+      <column id="286" parent="23" name="history_type">
+        <mandatory>1</mandatory>
+        <data-type>varchar(1)</data-type>
+      </column>
+      <column id="287" parent="23" name="employee_id">
+        <data-type>varchar(20)</data-type>
+      </column>
+      <column id="288" parent="23" name="history_user_id">
+        <data-type>int(11)</data-type>
+      </column>
+      <index id="289" parent="23" name="employee_historicalremark_b80bb774">
+        <columns>id</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <index id="290" parent="23" name="employee_hi_history_user_id_52e879b6_fk_base_site_userprofile_id">
+        <columns>history_user_id</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="291" parent="23" name="PRIMARY">
+        <columns>history_id</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="292" parent="23" name="employee_hi_history_user_id_52e879b6_fk_base_site_userprofile_id">
+        <columns>history_user_id</columns>
+        <ref-key>~.base_site_userprofile.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="293" parent="24" name="transfer_number">
+        <mandatory>1</mandatory>
+        <data-type>varchar(20)</data-type>
+      </column>
+      <column id="294" parent="24" name="old_job">
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="295" parent="24" name="new_job">
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="296" parent="24" name="transfer_date">
+        <mandatory>1</mandatory>
+        <data-type>date</data-type>
+      </column>
+      <column id="297" parent="24" name="new_department_salary_calculate_start_date">
+        <mandatory>1</mandatory>
+        <data-type>date</data-type>
+      </column>
+      <column id="298" parent="24" name="transfer_reason">
+        <data-type>longtext</data-type>
+      </column>
+      <column id="299" parent="24" name="confirm">
+        <mandatory>1</mandatory>
+        <data-type>tinyint(1)</data-type>
+      </column>
+      <column id="300" parent="24" name="history_id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="301" parent="24" name="history_date">
+        <mandatory>1</mandatory>
+        <data-type>datetime</data-type>
+      </column>
+      <column id="302" parent="24" name="history_type">
+        <mandatory>1</mandatory>
+        <data-type>varchar(1)</data-type>
+      </column>
+      <column id="303" parent="24" name="employee_id">
+        <data-type>varchar(20)</data-type>
+      </column>
+      <column id="304" parent="24" name="history_user_id">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="305" parent="24" name="new_department_id">
+        <data-type>varchar(20)</data-type>
+      </column>
+      <column id="306" parent="24" name="old_department_id">
+        <data-type>varchar(20)</data-type>
+      </column>
+      <index id="307" parent="24" name="employee_historicaltransferorder_73165bfa">
+        <columns>transfer_number</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <index id="308" parent="24" name="employee_historicaltransferorder_new_department_id_53ce69c3_uniq">
+        <columns>new_department_id</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <index id="309" parent="24" name="employee_historicaltransferorder_old_department_id_9d6cf96_uniq">
+        <columns>old_department_id</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <index id="310" parent="24" name="employee_hi_history_user_id_7607fdb2_fk_base_site_userprofile_id">
+        <columns>history_user_id</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="311" parent="24" name="PRIMARY">
+        <columns>history_id</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="312" parent="24" name="employee_hi_history_user_id_7607fdb2_fk_base_site_userprofile_id">
+        <columns>history_user_id</columns>
+        <ref-key>~.base_site_userprofile.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="313" parent="25" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="314" parent="25" name="start_date">
+        <mandatory>1</mandatory>
+        <data-type>date</data-type>
+      </column>
+      <column id="315" parent="25" name="end_date">
+        <data-type>date</data-type>
+      </column>
+      <column id="316" parent="25" name="job">
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="317" parent="25" name="history_id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="318" parent="25" name="history_date">
+        <mandatory>1</mandatory>
+        <data-type>datetime</data-type>
+      </column>
+      <column id="319" parent="25" name="history_type">
+        <mandatory>1</mandatory>
+        <data-type>varchar(1)</data-type>
+      </column>
+      <column id="320" parent="25" name="department_id">
+        <data-type>varchar(20)</data-type>
+      </column>
+      <column id="321" parent="25" name="employee_id">
+        <data-type>varchar(20)</data-type>
+      </column>
+      <column id="322" parent="25" name="history_user_id">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="323" parent="25" name="transfer_order_number">
+        <data-type>varchar(50)</data-type>
+      </column>
+      <index id="324" parent="25" name="employee_historicalworkexperience_b80bb774">
+        <columns>id</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <index id="325" parent="25" name="employee_his_history_user_id_590261d_fk_base_site_userprofile_id">
+        <columns>history_user_id</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="326" parent="25" name="PRIMARY">
+        <columns>history_id</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="327" parent="25" name="employee_his_history_user_id_590261d_fk_base_site_userprofile_id">
+        <columns>history_user_id</columns>
+        <ref-key>~.base_site_userprofile.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="328" parent="26" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="329" parent="26" name="name">
+        <mandatory>1</mandatory>
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="330" parent="26" name="relation">
+        <mandatory>1</mandatory>
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="331" parent="26" name="birthday">
+        <data-type>date</data-type>
+      </column>
+      <column id="332" parent="26" name="political_status">
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="333" parent="26" name="graduate_from">
+        <data-type>varchar(200)</data-type>
+      </column>
+      <column id="334" parent="26" name="job">
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="335" parent="26" name="employee_id">
+        <mandatory>1</mandatory>
+        <data-type>varchar(20)</data-type>
+      </column>
+      <index id="336" parent="26" name="employe_employee_id_305706a_fk_employee_employee_employee_number">
+        <columns>employee_id</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="337" parent="26" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="338" parent="26" name="employe_employee_id_305706a_fk_employee_employee_employee_number">
+        <columns>employee_id</columns>
+        <ref-key>~.employee_employee.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="339" parent="27" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="340" parent="27" name="remark">
+        <mandatory>1</mandatory>
+        <data-type>longtext</data-type>
+      </column>
+      <column id="341" parent="27" name="employee_id">
+        <mandatory>1</mandatory>
+        <data-type>varchar(20)</data-type>
+      </column>
+      <index id="342" parent="27" name="employee_id">
+        <columns>employee_id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="343" parent="27" name="employee_id">
+        <columns>employee_id</columns>
+        <underlying-index>employee_id</underlying-index>
+      </key>
+      <key id="344" parent="27" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="345" parent="27" name="employ_employee_id_40440062_fk_employee_employee_employee_number">
+        <columns>employee_id</columns>
+        <ref-key>~.employee_employee.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="346" parent="28" name="transfer_number">
+        <mandatory>1</mandatory>
+        <data-type>varchar(20)</data-type>
+      </column>
+      <column id="347" parent="28" name="old_job">
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="348" parent="28" name="new_job">
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="349" parent="28" name="transfer_date">
+        <mandatory>1</mandatory>
+        <data-type>date</data-type>
+      </column>
+      <column id="350" parent="28" name="new_department_salary_calculate_start_date">
+        <mandatory>1</mandatory>
+        <data-type>date</data-type>
+      </column>
+      <column id="351" parent="28" name="transfer_reason">
+        <data-type>longtext</data-type>
+      </column>
+      <column id="352" parent="28" name="confirm">
+        <mandatory>1</mandatory>
+        <data-type>tinyint(1)</data-type>
+      </column>
+      <column id="353" parent="28" name="employee_id">
+        <mandatory>1</mandatory>
+        <data-type>varchar(20)</data-type>
+      </column>
+      <column id="354" parent="28" name="new_department_id">
+        <mandatory>1</mandatory>
+        <data-type>varchar(20)</data-type>
+      </column>
+      <column id="355" parent="28" name="old_department_id">
+        <mandatory>1</mandatory>
+        <data-type>varchar(20)</data-type>
+      </column>
+      <index id="356" parent="28" name="employee_transferorder_new_department_id_46c0d8f9_uniq">
+        <columns>new_department_id</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <index id="357" parent="28" name="employee_transferorder_old_department_id_f2c2228_uniq">
+        <columns>old_department_id</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <index id="358" parent="28" name="employe_employee_id_bdb3c5a_fk_employee_employee_employee_number">
+        <columns>employee_id</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="359" parent="28" name="PRIMARY">
+        <columns>transfer_number</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="360" parent="28" name="D63e145a7508ff975444950271c45bf1">
+        <columns>new_department_id</columns>
+        <ref-key>~.department_department.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="361" parent="28" name="D858c226bb94646af2d832de78f02053">
+        <columns>old_department_id</columns>
+        <ref-key>~.department_department.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="362" parent="28" name="employe_employee_id_bdb3c5a_fk_employee_employee_employee_number">
+        <columns>employee_id</columns>
+        <ref-key>~.employee_employee.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="363" parent="29" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="364" parent="29" name="start_date">
+        <mandatory>1</mandatory>
+        <data-type>date</data-type>
+      </column>
+      <column id="365" parent="29" name="end_date">
+        <data-type>date</data-type>
+      </column>
+      <column id="366" parent="29" name="job">
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="367" parent="29" name="department_id">
+        <mandatory>1</mandatory>
+        <data-type>varchar(20)</data-type>
+      </column>
+      <column id="368" parent="29" name="employee_id">
+        <mandatory>1</mandatory>
+        <data-type>varchar(20)</data-type>
+      </column>
+      <column id="369" parent="29" name="transfer_order_number">
+        <data-type>varchar(50)</data-type>
+      </column>
+      <index id="370" parent="29" name="ee54a70c44894845a57da3f53dab1f0d">
+        <columns>department_id</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <index id="371" parent="29" name="employ_employee_id_62abec1d_fk_employee_employee_employee_number">
+        <columns>employee_id</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="372" parent="29" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="373" parent="29" name="ee54a70c44894845a57da3f53dab1f0d">
+        <columns>department_id</columns>
+        <ref-key>~.department_department.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="374" parent="29" name="employ_employee_id_62abec1d_fk_employee_employee_employee_number">
+        <columns>employee_id</columns>
+        <ref-key>~.employee_employee.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="375" parent="30" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="376" parent="30" name="date">
+        <mandatory>1</mandatory>
+        <data-type>date</data-type>
+      </column>
+      <column id="377" parent="30" name="holiday_id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <index id="378" parent="30" name="leave_exchanging_holiday_db485143">
+        <columns>holiday_id</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="379" parent="30" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="380" parent="30" name="leave_exchanging_holiday_holiday_id_587c4076_fk_leave_holiday_id">
+        <columns>holiday_id</columns>
+        <ref-key>~.leave_holiday.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="381" parent="31" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="382" parent="31" name="leave_type">
+        <mandatory>1</mandatory>
+        <data-type>varchar(20)</data-type>
+      </column>
+      <column id="383" parent="31" name="start_date">
+        <mandatory>1</mandatory>
+        <data-type>date</data-type>
+      </column>
+      <column id="384" parent="31" name="end_date">
+        <mandatory>1</mandatory>
+        <data-type>date</data-type>
+      </column>
+      <column id="385" parent="31" name="reason">
+        <data-type>longtext</data-type>
+      </column>
+      <column id="386" parent="31" name="history_id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="387" parent="31" name="history_date">
+        <mandatory>1</mandatory>
+        <data-type>datetime</data-type>
+      </column>
+      <column id="388" parent="31" name="history_type">
+        <mandatory>1</mandatory>
+        <data-type>varchar(1)</data-type>
+      </column>
+      <column id="389" parent="31" name="employee_id">
+        <data-type>varchar(20)</data-type>
+      </column>
+      <column id="390" parent="31" name="history_user_id">
+        <data-type>int(11)</data-type>
+      </column>
+      <index id="391" parent="31" name="leave_historicalleave_b80bb774">
+        <columns>id</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <index id="392" parent="31" name="leave_histor_history_user_id_8609e64_fk_base_site_userprofile_id">
+        <columns>history_user_id</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="393" parent="31" name="PRIMARY">
+        <columns>history_id</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="394" parent="31" name="leave_histor_history_user_id_8609e64_fk_base_site_userprofile_id">
+        <columns>history_user_id</columns>
+        <ref-key>~.base_site_userprofile.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="395" parent="32" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="396" parent="32" name="name">
+        <mandatory>1</mandatory>
+        <data-type>varchar(250)</data-type>
+      </column>
+      <column id="397" parent="32" name="start_date">
+        <mandatory>1</mandatory>
+        <data-type>date</data-type>
+      </column>
+      <column id="398" parent="32" name="end_date">
+        <mandatory>1</mandatory>
+        <data-type>date</data-type>
+      </column>
+      <key id="399" parent="32" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="400" parent="33" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="401" parent="33" name="leave_type">
+        <mandatory>1</mandatory>
+        <data-type>varchar(20)</data-type>
+      </column>
+      <column id="402" parent="33" name="start_date">
+        <mandatory>1</mandatory>
+        <data-type>date</data-type>
+      </column>
+      <column id="403" parent="33" name="end_date">
+        <mandatory>1</mandatory>
+        <data-type>date</data-type>
+      </column>
+      <column id="404" parent="33" name="reason">
+        <data-type>longtext</data-type>
+      </column>
+      <column id="405" parent="33" name="employee_id">
+        <mandatory>1</mandatory>
+        <data-type>varchar(20)</data-type>
+      </column>
+      <index id="406" parent="33" name="leave_l_employee_id_e98a438_fk_employee_employee_employee_number">
+        <columns>employee_id</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="407" parent="33" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="408" parent="33" name="leave_l_employee_id_e98a438_fk_employee_employee_employee_number">
+        <columns>employee_id</columns>
+        <ref-key>~.employee_employee.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="409" parent="34" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="410" parent="34" name="path">
+        <mandatory>1</mandatory>
+        <data-type>varchar(2000)</data-type>
+      </column>
+      <column id="411" parent="34" name="path_verbose">
+        <mandatory>1</mandatory>
+        <data-type>varchar(2000)</data-type>
+      </column>
+      <column id="412" parent="34" name="field">
+        <mandatory>1</mandatory>
+        <data-type>varchar(2000)</data-type>
+      </column>
+      <column id="413" parent="34" name="field_verbose">
+        <mandatory>1</mandatory>
+        <data-type>varchar(2000)</data-type>
+      </column>
+      <column id="414" parent="34" name="name">
+        <mandatory>1</mandatory>
+        <data-type>varchar(2000)</data-type>
+      </column>
+      <column id="415" parent="34" name="sort">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="416" parent="34" name="sort_reverse">
+        <mandatory>1</mandatory>
+        <data-type>tinyint(1)</data-type>
+      </column>
+      <column id="417" parent="34" name="width">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="418" parent="34" name="aggregate">
+        <mandatory>1</mandatory>
+        <data-type>varchar(5)</data-type>
+      </column>
+      <column id="419" parent="34" name="position">
+        <data-type>smallint(5) unsigned</data-type>
+      </column>
+      <column id="420" parent="34" name="total">
+        <mandatory>1</mandatory>
+        <data-type>tinyint(1)</data-type>
+      </column>
+      <column id="421" parent="34" name="group">
+        <mandatory>1</mandatory>
+        <data-type>tinyint(1)</data-type>
+      </column>
+      <column id="422" parent="34" name="display_format_id">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="423" parent="34" name="report_id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <index id="424" parent="34" name="report_builder_displayfield_6f78b20c">
+        <columns>report_id</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <index id="425" parent="34" name="report_builder_displayfield_e648f564">
+        <columns>display_format_id</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="426" parent="34" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="427" parent="34" name="report_builder_di_report_id_2f13754e_fk_report_builder_report_id">
+        <columns>report_id</columns>
+        <ref-key>~.report_builder_report.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="428" parent="34" name="report_bu_display_format_id_7d5268e0_fk_report_builder_format_id">
+        <columns>display_format_id</columns>
+        <ref-key>~.report_builder_format.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="429" parent="35" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="430" parent="35" name="path">
+        <mandatory>1</mandatory>
+        <data-type>varchar(2000)</data-type>
+      </column>
+      <column id="431" parent="35" name="path_verbose">
+        <mandatory>1</mandatory>
+        <data-type>varchar(2000)</data-type>
+      </column>
+      <column id="432" parent="35" name="field">
+        <mandatory>1</mandatory>
+        <data-type>varchar(2000)</data-type>
+      </column>
+      <column id="433" parent="35" name="field_verbose">
+        <mandatory>1</mandatory>
+        <data-type>varchar(2000)</data-type>
+      </column>
+      <column id="434" parent="35" name="filter_type">
+        <mandatory>1</mandatory>
+        <data-type>varchar(20)</data-type>
+      </column>
+      <column id="435" parent="35" name="filter_value">
+        <mandatory>1</mandatory>
+        <data-type>varchar(2000)</data-type>
+      </column>
+      <column id="436" parent="35" name="filter_value2">
+        <mandatory>1</mandatory>
+        <data-type>varchar(2000)</data-type>
+      </column>
+      <column id="437" parent="35" name="exclude">
+        <mandatory>1</mandatory>
+        <data-type>tinyint(1)</data-type>
+      </column>
+      <column id="438" parent="35" name="position">
+        <data-type>smallint(5) unsigned</data-type>
+      </column>
+      <column id="439" parent="35" name="report_id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <index id="440" parent="35" name="report_builder_filterfield_6f78b20c">
+        <columns>report_id</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="441" parent="35" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="442" parent="35" name="report_builder_fi_report_id_36c7a715_fk_report_builder_report_id">
+        <columns>report_id</columns>
+        <ref-key>~.report_builder_report.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="443" parent="36" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="444" parent="36" name="name">
+        <mandatory>1</mandatory>
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="445" parent="36" name="string">
+        <mandatory>1</mandatory>
+        <data-type>varchar(300)</data-type>
+      </column>
+      <key id="446" parent="36" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="447" parent="37" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="448" parent="37" name="name">
+        <mandatory>1</mandatory>
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="449" parent="37" name="slug">
+        <mandatory>1</mandatory>
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="450" parent="37" name="description">
+        <mandatory>1</mandatory>
+        <data-type>longtext</data-type>
+      </column>
+      <column id="451" parent="37" name="created">
+        <mandatory>1</mandatory>
+        <data-type>date</data-type>
+      </column>
+      <column id="452" parent="37" name="modified">
+        <mandatory>1</mandatory>
+        <data-type>date</data-type>
+      </column>
+      <column id="453" parent="37" name="distinct">
+        <mandatory>1</mandatory>
+        <data-type>tinyint(1)</data-type>
+      </column>
+      <column id="454" parent="37" name="report_file">
+        <mandatory>1</mandatory>
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="455" parent="37" name="report_file_creation">
+        <data-type>datetime</data-type>
+      </column>
+      <column id="456" parent="37" name="root_model_id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="457" parent="37" name="user_created_id">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="458" parent="37" name="user_modified_id">
+        <data-type>int(11)</data-type>
+      </column>
+      <index id="459" parent="37" name="report_builder_report_2dbcba41">
+        <columns>slug</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <index id="460" parent="37" name="report_builder__root_model_id_76ec6404_fk_django_content_type_id">
+        <columns>root_model_id</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <index id="461" parent="37" name="report_buil_user_created_id_7590dc8c_fk_base_site_userprofile_id">
+        <columns>user_created_id</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <index id="462" parent="37" name="report_bui_user_modified_id_23b4a6f4_fk_base_site_userprofile_id">
+        <columns>user_modified_id</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="463" parent="37" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="464" parent="37" name="report_builder__root_model_id_76ec6404_fk_django_content_type_id">
+        <columns>root_model_id</columns>
+        <ref-key>~.django_content_type.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="465" parent="37" name="report_buil_user_created_id_7590dc8c_fk_base_site_userprofile_id">
+        <columns>user_created_id</columns>
+        <ref-key>~.base_site_userprofile.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="466" parent="37" name="report_bui_user_modified_id_23b4a6f4_fk_base_site_userprofile_id">
+        <columns>user_modified_id</columns>
+        <ref-key>~.base_site_userprofile.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="467" parent="38" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="468" parent="38" name="report_id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="469" parent="38" name="userprofile_id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <index id="470" parent="38" name="report_build_userprofile_id_57aa3957_fk_base_site_userprofile_id">
+        <columns>userprofile_id</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <index id="471" parent="38" name="report_id">
+        <columns>report_id
+userprofile_id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="472" parent="38" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <key id="473" parent="38" name="report_id">
+        <columns>report_id
+userprofile_id</columns>
+        <underlying-index>report_id</underlying-index>
+      </key>
+      <foreign-key id="474" parent="38" name="report_builder_re_report_id_710e8bd0_fk_report_builder_report_id">
+        <columns>report_id</columns>
+        <ref-key>~.report_builder_report.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="475" parent="38" name="report_build_userprofile_id_57aa3957_fk_base_site_userprofile_id">
+        <columns>userprofile_id</columns>
+        <ref-key>~.base_site_userprofile.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+    </database-model>
+  </data-source>
+</component>

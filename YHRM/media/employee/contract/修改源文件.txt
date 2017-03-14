@@ -1,0 +1,50 @@
+#C:\Python27\Lib\site-packages\import_export\resources.py
+
+def import_row(self, row, instance_loader, dry_run=False, **kwargs):
+        """
+        Imports data from ``tablib.Dataset``. Refer to :doc:`import_workflow`
+        for a more complete description of the whole import process.
+
+        :param row: A ``dict`` of the row to import
+
+        :param instance_loader: The instance loader to be used to load the row
+
+        :param dry_run: If ``dry_run`` is set, or error occurs, transaction
+            will be rolled back.
+        """
+        try:
+            row_result = self.get_row_result_class()()
+            instance, new = self.get_or_init_instance(instance_loader, row)
+            if new:
+                row_result.import_type = RowResult.IMPORT_TYPE_NEW
+            else:
+                row_result.import_type = RowResult.IMPORT_TYPE_UPDATE
+            row_result.new_record = new
+            row_result.object_repr = force_text(instance)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@register.filter(name='display')
+def display_value(bf):
+    """Returns the display value of a BoundField"""
+    return dict(bf.field.choices).get(bf.data, '')
+
+Then you can do:
+
+{% for field in form %}
+    <tr>
+        <th>{{ field.label }}:</th>
+        <td>{{ field.data|display }}</td>
+    </tr>
+{% endfor %}

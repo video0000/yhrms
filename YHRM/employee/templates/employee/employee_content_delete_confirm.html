@@ -1,0 +1,59 @@
+{% extends 'employee/employ_detail.html' %}
+{% load bootstrap debugtools_tags %}
+{% block content_breadcrumb_li %}
+    <li class=""><a href="{% url 'BP_INDEX' %}">控制台</a></li>
+    <li class=""><a href="{% url 'EMPLOYEE:EMPLOYEE_LIST' %}">花名册</a></li>
+    <li class=""><a href="{% url 'EMPLOYEE:EMPLOYEE_DETAIL' employee.employee_number content_type%}">员工档案</a></li>
+    <li class="active">修改档案</li>
+{% endblock %}
+{% block content_box2 %}
+    <div class="modal fade modal-danger" id="change_modal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="$(function() {
+                            window.location.href='{% url 'EMPLOYEE:EMPLOYEE_DETAIL' employee.employee_number content_type  %}'
+                            });">
+                        <span aria-hidden="true">×</span></button>
+                    <h4 class="modal-title">{% block form-title %}删除信息{% endblock %}</h4>
+                </div>
+                确定删除本条信息吗？
+
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <div class="modal modal-danger fade"  id="delete_modal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="$(function() {
+                            window.location.href='{% url 'EMPLOYEE:EMPLOYEE_DETAIL' employee.employee_number content_type  %}'
+                            });">
+                        <span aria-hidden="true">×</span></button>
+                    <h4 class="modal-title">删除信息!</h4>
+                </div>
+                <div class="modal-body">
+                    <h3>确定要删除吗？</h3>
+                    <br/><p>注意：删除后可能无法恢复！</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline pull-left" data-dismiss="modal" onclick="$(function() {
+                            window.location.href='{% url 'EMPLOYEE:EMPLOYEE_DETAIL' employee.employee_number content_type  %}'
+                            });">取消</button>
+                    <button type="button" class="btn btn-outline" onclick="$(function() {
+                            window.location.href='{% url 'EMPLOYEE:EMPLOYEE_DELETE' employee.employee_number content_type  content_id %}'
+                            });">删除</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <script>
+        $(document).ready(function(){
+            $('#delete_modal').modal('show');
+        })
+    </script>
+{% endblock %}

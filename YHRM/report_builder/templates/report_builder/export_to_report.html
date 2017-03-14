@@ -1,0 +1,56 @@
+{% extends "report_builder/base.html" %}
+{% load i18n %}
+{% block content %}
+    <script src="{{ STATIC_URL }}report_builder/js/jquery-2.2.3.min.js" type="text/javascript" ></script>
+    <script src="{{ STATIC_URL }}report_builder/js/report_form.js" type="text/javascript" ></script>
+    <p>
+      {% trans "Select the report you wish to use. Report filters will be ignored and only your checked off items will be reported." %}
+    </p>
+    <p>
+      {% trans "Create and manage reports" %} <a href="{% url "admin:report_builder_report_changelist" %}">{% trans "here" %}</a>.
+    </p>
+    <p>
+    {% blocktrans with number_objects=number_objects model=model plur=number_objects|pluralize admin_url=admin_url %}
+    You have selected {{ number_objects }} {{ model }} record{{ plur }}. Click <a href="{{ admin_url }}">here to go back</a>.
+    {% endblocktrans %}
+    </p>
+    <h2>{{ model|capfirst }} {% trans "Reports" %}</h2>
+    <table class="reports_table">
+    <thead>
+        <tr>
+            <th>{% trans "Name" %}</th>
+            <th>{% trans "Description" %}</th>
+            <th>{% trans "Created" %}</th>
+            <th>{% trans "Modified" %}</th>
+            <th>{% trans "Select and Download" %}</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for report in object_list %}
+        <tr>
+            <td>
+                {{ report.name }}
+            </td>
+            <td>
+                {{ report.description }}
+            </td>
+            <td>
+            {% blocktrans with created=report.created user=report.user_created %}
+            {{ created }} by {{ user }}
+            {% endblocktrans %}
+            </td>
+            <td>
+            {% blocktrans with modified=report.modified user=report.user_modified %}
+            {{ modified }} by {{ user }}
+            {% endblocktrans %}
+            </td>
+            <td>
+                <a href="?ct={{ ct }}&ids={{ ids }}&download={{ report.id }}">
+                  <img style="width: 26px;" src="/static/report_builder/img/download.svg"/>
+                </a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+    </table>
+{% endblock %}

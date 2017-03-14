@@ -1,0 +1,741 @@
+{% extends 'employee/employee.html' %}
+{% load static %}
+{% block content_breadcrumb_li %}
+    <li class=""><a href="{% url 'BP_INDEX' %}">控制台</a></li>
+    <li class=""><a href="{% url 'EMPLOYEE:EMPLOYEE_LIST' %}">花名册</a></li>
+    <li class=""><a href="{% url 'EMPLOYEE:EMPLOYEE_DETAIL' employee.employee_number 'basic_information' %}">员工档案</a>
+    </li>
+    <li class="active">简历预览</li>
+{% endblock %}
+{% block content_box1 %}
+    <div class="col-md-9">
+        <!-- Profile Image -->
+        {#        http://docpe.pdfdowell.com/word/word-to-html.aspx#}
+        <div class="box box-primary ">
+            <div class="box-body box-profile">
+                <div class="row">
+                    <div class="col-md-12">
+                        <a class="btn btn-default jquery-word-export" href="javascript:void(0)">
+                            <span class="word-icon" style="font-family:Helvetica, sans-serif;font-size: 24px;font-weight:bold;background-color:#0054a6;color:white;padding:2px 5px;vertical-align: middle;">W</span>
+                            导出为.doc文档
+                        </a>
+                        <h1>《员工简历》</h1>
+                        <div id="pagecontent">
+                            <div><p style="margin:0pt; text-align:center"><span
+                                    style="font-family:宋体; font-size:16pt; font-weight:bold">&nbsp;</span></p>
+                                <table cellspacing="0" cellpadding="0"
+                                       style="border-collapse:collapse; margin-left:0pt">
+                                    <tbody>
+                                    <tr style="height:60.1pt">
+                                        <td colspan="12"
+                                            style="border: 0.75pt solid #000000;padding-left:4.68pt; padding-right:4.68pt; vertical-align:middle; width:451.55pt">
+                                            <p style="margin:0pt; text-align:center"><span
+                                                    style="font-family:宋体; font-size:20pt; font-weight:bold">个人基本信息</span>
+                                            </p></td>
+                                    </tr>
+                                    <tr style="height:28.5pt">
+                                        <td style="border: 0.75pt solid #000000;padding-left:4.68pt; padding-right:4.68pt; vertical-align:middle; width:61.55pt">
+                                            <p style="margin:0pt; text-align:center"><span
+                                                    style="font-family:宋体; font-size:12pt">姓名</span></p></td>
+                                        <td style="border-top: 0.75pt solid #000000;border-right: 0.75pt solid #000000;border-bottom: 0.75pt solid #000000;padding-left:5.4pt; padding-right:4.68pt; vertical-align:middle; width:46.25pt">
+                                            <p style="margin:0pt; text-align:center"><span
+                                                    style="font-family:宋体; font-size:12pt">{% if employee.name %}{{ employee.name }}{% endif %}</span></p></td>
+                                        <td colspan="2"
+                                            style="border-top: 0.75pt solid #000000;border-right: 0.75pt solid #000000;border-bottom: 0.75pt solid #000000;padding-left:5.4pt; padding-right:4.68pt; vertical-align:middle; width:74.7pt">
+                                            <p style="margin:0pt; text-align:center"><span
+                                                    style="font-family:宋体; font-size:12pt">性别</span></p></td>
+                                        <td colspan="2"
+                                            style="border-top: 0.75pt solid #000000;border-right: 0.75pt solid #000000;border-bottom: 0.75pt solid #000000;padding-left:5.4pt; padding-right:4.68pt; vertical-align:middle; width:46.5pt">
+                                            <p style="margin:0pt; text-align:center"><span
+                                                    style="font-family:宋体; font-size:12pt">{% if employee.gender %}{{ employee.gender }}{% endif %}</span></p></td>
+                                        <td colspan="2"
+                                            style="border-top: 0.75pt solid #000000;border-right: 0.75pt solid #000000;border-bottom: 0.75pt solid #000000;padding-left:5.4pt; padding-right:4.68pt; vertical-align:middle; width:31pt">
+                                            <p style="margin:0pt; text-align:center"><span
+                                                    style="font-family:宋体; font-size:12pt">民族</span></p></td>
+                                        <td colspan="2"
+                                            style="border-top: 0.75pt solid #000000;border-right: 0.75pt solid #000000;border-bottom: 0.75pt solid #000000;padding-left:5.4pt; padding-right:4.68pt; vertical-align:middle; width:25.7pt">
+                                            <p style="margin:0pt; text-align:center"><span
+                                                    style="font-family:宋体; font-size:12pt">{% if employee.nationality %}{{ employee.nationality }}{% endif %}</span></p></td>
+                                        <td colspan="2" rowspan="5"
+                                            style="border: 0.75pt solid #000000;padding-left:4.68pt; padding-right:4.68pt; vertical-align:middle; width:103.5pt">
+                                            <p style="margin:0pt; text-align:center"><img
+                                                    src="{% if employee.atatar.url %}{{ employee.atatar.url }}{% endif %}"
+                                                    width="137" height="182" alt=""
+                                                    style="-aw-left-pos:0pt; -aw-rel-hpos:column; -aw-rel-vpos:paragraph; -aw-top-pos:0pt; -aw-wrap-type:inline">
+                                            </p></td>
+                                    </tr>
+                                    <tr style="height:28.5pt">
+                                        <td style="border-right: 0.75pt solid #000000;border-bottom: 0.75pt solid #000000;border-left: 0.75pt solid #000000;padding-left:4.68pt; padding-right:4.68pt; vertical-align:middle; width:61.55pt">
+                                            <p style="margin:0pt; text-align:center"><span
+                                                    style="font-family:宋体; font-size:12pt">出生年月日</span></p></td>
+                                        <td colspan="3"
+                                            style="border-right: 0.75pt solid #000000;border-bottom: 0.75pt solid #000000;padding-left:5.4pt; padding-right:4.68pt; vertical-align:middle; width:131.4pt">
+                                            <p style="margin:0pt; text-align:center"><span
+                                                    style="font-family:宋体; font-size:12pt">{% if employee.birthday %}{{ employee.birthday }}{% endif %}</span></p></td>
+                                        <td colspan="2"
+                                            style="border-right: 0.75pt solid #000000;border-bottom: 0.75pt solid #000000;padding-left:5.4pt; padding-right:4.68pt; vertical-align:middle; width:46.5pt">
+                                            <p style="margin:0pt; text-align:center"><span
+                                                    style="font-family:宋体; font-size:12pt">年龄</span></p></td>
+                                        <td colspan="4"
+                                            style="border-right: 0.75pt solid #000000;border-bottom: 0.75pt solid #000000;padding-left:5.4pt; padding-right:4.68pt; vertical-align:middle; width:67.15pt">
+                                            <p style="margin:0pt; text-indent:12pt"><span
+                                                    style="font-family:宋体; font-size:12pt">{% if employee.age %}{{ employee.age }}{% endif %}</span></p></td>
+                                    </tr>
+                                    <tr style="height:28.5pt">
+                                        <td style="border-right: 0.75pt solid #000000;border-bottom: 0.75pt solid #000000;border-left: 0.75pt solid #000000;padding-left:4.68pt; padding-right:4.68pt; vertical-align:middle; width:61.55pt">
+                                            <p style="margin:0pt; text-align:center"><span
+                                                    style="font-family:宋体; font-size:12pt">参加工作</span></p>
+                                            <p style="margin:0pt; text-align:center"><span
+                                                    style="font-family:宋体; font-size:12pt">时间</span></p></td>
+                                        <td colspan="3"
+                                            style="border-right: 0.75pt solid #000000;border-bottom: 0.75pt solid #000000;padding-left:5.4pt; padding-right:4.68pt; vertical-align:middle; width:131.4pt">
+                                            <p style="margin:0pt; text-align:center"><span
+                                                    style="font-family:宋体; font-size:12pt">{% if employee.date_of_start_working %}{{ employee.date_of_start_working }}{% endif %}</span></p></td>
+                                        <td colspan="2"
+                                            style="border-right: 0.75pt solid #000000;border-bottom: 0.75pt solid #000000;padding-left:5.4pt; padding-right:4.68pt; vertical-align:middle; width:46.5pt">
+                                            <p style="margin:0pt; text-align:center"><span
+                                                    style="font-family:宋体; font-size:12pt">工龄</span></p></td>
+                                        <td colspan="4"
+                                            style="border-right: 0.75pt solid #000000;border-bottom: 0.75pt solid #000000;padding-left:5.4pt; padding-right:4.68pt; vertical-align:middle; width:67.15pt">
+                                            <p style="margin:0pt; text-align:center"><span
+                                                    style="font-family:宋体; font-size:12pt">{% if employee.work_age %}{{ employee.work_age }}{% endif %}</span></p></td>
+                                    </tr>
+                                    <tr style="height:28.5pt">
+                                        <td style="border-right: 0.75pt solid #000000;border-bottom: 0.75pt solid #000000;border-left: 0.75pt solid #000000;padding-left:4.68pt; padding-right:4.68pt; vertical-align:middle; width:61.55pt">
+                                            <p style="margin:0pt; text-align:center"><span
+                                                    style="font-family:宋体; font-size:12pt">到商行工作时间</span></p></td>
+                                        <td colspan="3"
+                                            style="border-right: 0.75pt solid #000000;border-bottom: 0.75pt solid #000000;padding-left:5.4pt; padding-right:4.68pt; vertical-align:middle; width:131.4pt">
+                                            <p style="margin:0pt; text-align:center"><span
+                                                    style="font-family:宋体; font-size:12pt">{% if employee.date_of_joined_bccb %}{{ employee.date_of_joined_bccb }}{% endif %}</span></p></td>
+                                        <td colspan="2"
+                                            style="border-right: 0.75pt solid #000000;border-bottom: 0.75pt solid #000000;padding-left:5.4pt; padding-right:4.68pt; vertical-align:middle; width:46.5pt">
+                                            <p style="margin:0pt; text-align:center"><span
+                                                    style="font-family:宋体; font-size:12pt">行龄</span></p></td>
+                                        <td colspan="4"
+                                            style="border-right: 0.75pt solid #000000;border-bottom: 0.75pt solid #000000;padding-left:5.4pt; padding-right:4.68pt; vertical-align:middle; width:67.15pt">
+                                            <p style="margin:0pt; text-align:center"><span
+                                                    style="font-family:宋体; font-size:12pt">{% if employee.local_age %}{{ employee.local_age }}{% endif %}</span></p></td>
+                                    </tr>
+                                    <tr style="height:28.5pt">
+                                        <td style="border-right: 0.75pt solid #000000;border-bottom: 0.75pt solid #000000;border-left: 0.75pt solid #000000;padding-left:4.68pt; padding-right:4.68pt; vertical-align:middle; width:61.55pt">
+                                            <p style="margin:0pt; text-align:center"><span
+                                                    style="font-family:宋体; font-size:12pt">员工性质</span></p></td>
+                                        <td style="border-right: 0.75pt solid #000000;border-bottom: 0.75pt solid #000000;padding-left:5.4pt; padding-right:4.68pt; vertical-align:middle; width:46.25pt">
+                                            <p style="margin:0pt; text-align:center"><span
+                                                    style="font-family:宋体; font-size:12pt">{% if employee.employee_type %}{{ employee.employee_type }}{% endif %}</span></p></td>
+                                        <td colspan="2"
+                                            style="border-right: 0.75pt solid #000000;border-bottom: 0.75pt solid #000000;padding-left:5.4pt; padding-right:4.68pt; vertical-align:middle; width:74.7pt">
+                                            <p style="margin:0pt; text-align:center"><span
+                                                    style="font-family:宋体; font-size:12pt">职称</span></p></td>
+                                        <td colspan="6"
+                                            style="border-top: 0.75pt solid #000000;border-right: 0.75pt solid #000000;border-bottom: 0.75pt solid #000000;padding-left:5.4pt; padding-right:4.68pt; vertical-align:middle; width:124.1pt">
+                                            <p style="margin:0pt; text-align:center"><span
+                                                    style="font-family:宋体; font-size:12pt">{% if employee.titles %}{{ employee.titles }}{% endif %}</span></p></td>
+                                    </tr>
+                                    <tr style="height:28.5pt">
+                                        <td style="border-right: 0.75pt solid #000000;border-bottom: 0.75pt solid #000000;border-left: 0.75pt solid #000000;padding-left:4.68pt; padding-right:4.68pt; vertical-align:middle; width:61.55pt">
+                                            <p style="margin:0pt; text-align:center"><span
+                                                    style="font-family:宋体; font-size:12pt">所在单位</span></p></td>
+                                        <td colspan="3"
+                                            style="border-right: 0.75pt solid #000000;border-bottom: 0.75pt solid #000000;padding-left:5.4pt; padding-right:4.68pt; vertical-align:middle; width:131.4pt">
+                                            <p style="margin:0pt; text-align:center"><span
+                                                    style="font-family:宋体; font-size:12pt">{% if employee.department.name %}{{ employee.department.name }}{% endif %}</span></p></td>
+                                        <td colspan="3"
+                                            style="border-right: 0.75pt solid #000000;border-bottom: 0.75pt solid #000000;padding-left:5.4pt; padding-right:4.68pt; vertical-align:middle; width:67.55pt">
+                                            <p style="margin:0pt; text-align:center"><span
+                                                    style="font-family:宋体; font-size:12pt">单位类别</span></p></td>
+                                        <td colspan="5"
+                                            style="border-right: 0.75pt solid #000000;border-bottom: 0.75pt solid #000000;padding-left:5.4pt; padding-right:4.68pt; vertical-align:middle; width:159.7pt">
+                                            <p style="margin:0pt; text-align:center"><span
+                                                    style="font-family:宋体; font-size:12pt">{% if employee.department.type %}{{ employee.department.type }}{% endif %}</span></p></td>
+                                    </tr>
+                                    <tr style="height:28.5pt">
+                                        <td style="border-right: 0.75pt solid #000000;border-bottom: 0.75pt solid #000000;border-left: 0.75pt solid #000000;padding-left:4.68pt; padding-right:4.68pt; vertical-align:middle; width:61.55pt">
+                                            <p style="margin:0pt; text-align:center"><span
+                                                    style="font-family:宋体; font-size:12pt">岗位</span></p></td>
+                                        <td colspan="11"
+                                            style="border-right: 0.75pt solid #000000;border-bottom: 0.75pt solid #000000;padding-left:5.4pt; padding-right:4.68pt; vertical-align:middle; width:379.55pt">
+                                            <p style="margin:0pt; text-align:center"><span
+                                                    style="font-family:宋体; font-size:12pt">{% if employee.job %}{{ employee.job }}{% endif %}</span></p></td>
+                                    </tr>
+                                    <tr style="height:28.5pt">
+                                        <td style="border-right: 0.75pt solid #000000;border-bottom: 0.75pt solid #000000;border-left: 0.75pt solid #000000;padding-left:4.68pt; padding-right:4.68pt; vertical-align:middle; width:61.55pt">
+                                            <p style="margin:0pt; text-align:center"><span
+                                                    style="font-family:宋体; font-size:12pt">政治面貌</span></p></td>
+                                        <td colspan="3"
+                                            style="border-right: 0.75pt solid #000000;border-bottom: 0.75pt solid #000000;padding-left:5.4pt; padding-right:4.68pt; vertical-align:middle; width:131.4pt">
+                                            <p style="margin:0pt; text-align:center"><span
+                                                    style="font-family:宋体; font-size:12pt">{% if employee.political_status %}{{ employee.political_status }}{% endif %}</span></p></td>
+                                        <td colspan="3"
+                                            style="border-right: 0.75pt solid #000000;border-bottom: 0.75pt solid #000000;padding-left:5.4pt; padding-right:4.68pt; vertical-align:middle; width:67.55pt">
+                                            <p style="margin:0pt; text-align:center"><span
+                                                    style="font-family:宋体; font-size:12pt">入党时间</span></p></td>
+                                        <td colspan="5"
+                                            style="border-right: 0.75pt solid #000000;border-bottom: 0.75pt solid #000000;padding-left:5.4pt; padding-right:4.68pt; vertical-align:middle; width:159.7pt">
+                                            <p style="margin:0pt; text-align:center"><span
+                                                    style="font-family:宋体; font-size:12pt">{% if employee.political_joined_date %}{{ employee.political_joined_date }}{% endif %}</span></p></td>
+                                    </tr>
+                                    <tr style="height:36.8pt">
+                                        <td style="border: 0.75pt solid #000000;padding-left:4.68pt; padding-right:4.68pt; vertical-align:middle; width:61.55pt">
+                                            <p style="margin:0pt; text-align:center"><span
+                                                    style="font-family:宋体; font-size:12pt">劳动合同</span></p>
+                                            <p style="margin:0pt; text-align:center"><span
+                                                    style="font-family:宋体; font-size:12pt">开始时间</span></p></td>
+                                        <td colspan="2"
+                                            style="border-top: 0.75pt solid #000000;border-right: 0.75pt solid #000000;border-bottom: 0.75pt solid #000000;padding-left:5.4pt; padding-right:4.68pt; vertical-align:middle; width:60.4pt">
+                                            <p style="margin:0pt; text-align:center"><span
+                                                    style="font-family:宋体; font-size:12pt">{% if employee.contracts.start_date %}{{ employee.contracts.start_date }}{% endif %}</span></p></td>
+                                        <td colspan="2"
+                                            style="border-top: 0.75pt solid #000000;border-right: 0.75pt solid #000000;border-bottom: 0.75pt solid #000000;padding-left:5.4pt; padding-right:4.68pt; vertical-align:middle; width:96pt">
+                                            <p style="margin:0pt; text-align:center"><span
+                                                    style="font-family:宋体; font-size:12pt">劳动合同结束时间</span></p></td>
+                                        <td colspan="4"
+                                            style="border-top: 0.75pt solid #000000;border-right: 0.75pt solid #000000;border-bottom: 0.75pt solid #000000;padding-left:5.4pt; padding-right:4.68pt; vertical-align:middle; width:67.5pt">
+                                            <p style="margin:0pt; text-align:center"><span
+                                                    style="font-family:宋体; font-size:12pt">{% if employee.contracts.end_date %}{{ employee.contracts.end_date }}{% endif %}</span></p></td>
+                                        <td colspan="2"
+                                            style="border-top: 0.75pt solid #000000;border-right: 0.75pt solid #000000;border-bottom: 0.75pt solid #000000;padding-left:5.4pt; padding-right:4.68pt; vertical-align:middle; width:46.25pt">
+                                            <p style="margin:0pt; text-align:center"><span
+                                                    style="font-family:宋体; font-size:12pt">合同</span></p>
+                                            <p style="margin:0pt; text-align:center"><span
+                                                    style="font-family:宋体; font-size:12pt">期限</span></p></td>
+                                        <td style="border-top: 0.75pt solid #000000;border-right: 0.75pt solid #000000;border-bottom: 0.75pt solid #000000;padding-left:5.4pt; padding-right:4.68pt; vertical-align:middle; width:67.6pt">
+                                            <p style="margin:0pt; text-align:center"><span
+                                                    style="font-family:宋体; font-size:12pt">{% if employee.contracts.duration %}{{ employee.contracts.duration }}{% endif %}</span></p></td>
+                                    </tr>
+                                    <tr style="height:36.8pt">
+                                        <td style="border: 0.75pt solid #000000;padding-left:4.68pt; padding-right:4.68pt; vertical-align:middle; width:61.55pt">
+                                            <p style="margin:0pt; text-align:center"><span
+                                                    style="font-family:宋体; font-size:12pt">身份证号码</span></p></td>
+                                        <td colspan="11"
+                                            style="border-top: 0.75pt solid #000000;border-right: 0.75pt solid #000000;border-bottom: 0.75pt solid #000000;padding-left:5.4pt; padding-right:4.68pt; vertical-align:middle; width:379.55pt">
+                                            <p style="margin:0pt; text-align:center"><span
+                                                    style="font-family:宋体; font-size:12pt">{% if employee.identification_card %}{{ employee.identification_card }}{% endif %}</span></p></td>
+                                    </tr>
+                                    <tr style="height:36.8pt">
+                                        <td style="border: 0.75pt solid #000000;padding-left:4.68pt; padding-right:4.68pt; vertical-align:middle; width:61.55pt">
+                                            <p style="margin:0pt; text-align:center"><span
+                                                    style="font-family:宋体; font-size:12pt">家庭住址</span></p></td>
+                                        <td colspan="11"
+                                            style="border-top: 0.75pt solid #000000;border-right: 0.75pt solid #000000;border-bottom: 0.75pt solid #000000;padding-left:5.4pt; padding-right:4.68pt; vertical-align:middle; width:379.55pt">
+                                            <p style="margin:0pt; text-align:center"><span
+                                                    style="font-family:宋体; font-size:12pt">{% if employee.home_address %}{{ employee.home_address }}{% endif %}</span></p></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="vertical-align:middle; width:71.65pt"><p style="margin:0pt"><span
+                                                style="font-family:'Times New Roman'; font-size:10pt">&nbsp;</span></p>
+                                        </td>
+                                        <td style="vertical-align:middle; width:56.7pt"><p style="margin:0pt"><span
+                                                style="font-family:'Times New Roman'; font-size:10pt">&nbsp;</span></p>
+                                        </td>
+                                        <td style="vertical-align:middle; width:14.15pt"><p style="margin:0pt"><span
+                                                style="font-family:'Times New Roman'; font-size:10pt">&nbsp;</span></p>
+                                        </td>
+                                        <td style="vertical-align:middle; width:71pt"><p style="margin:0pt"><span
+                                                style="font-family:'Times New Roman'; font-size:10pt">&nbsp;</span></p>
+                                        </td>
+                                        <td style="vertical-align:middle; width:35.45pt"><p style="margin:0pt"><span
+                                                style="font-family:'Times New Roman'; font-size:10pt">&nbsp;</span></p>
+                                        </td>
+                                        <td style="vertical-align:middle; width:21.5pt"><p style="margin:0pt"><span
+                                                style="font-family:'Times New Roman'; font-size:10pt">&nbsp;</span></p>
+                                        </td>
+                                        <td style="vertical-align:middle; width:21.05pt"><p style="margin:0pt"><span
+                                                style="font-family:'Times New Roman'; font-size:10pt">&nbsp;</span></p>
+                                        </td>
+                                        <td style="vertical-align:middle; width:20.4pt"><p style="margin:0pt"><span
+                                                style="font-family:'Times New Roman'; font-size:10pt">&nbsp;</span></p>
+                                        </td>
+                                        <td style="vertical-align:middle; width:15pt"><p style="margin:0pt"><span
+                                                style="font-family:'Times New Roman'; font-size:10pt">&nbsp;</span></p>
+                                        </td>
+                                        <td style="vertical-align:middle; width:21.15pt"><p style="margin:0pt"><span
+                                                style="font-family:'Times New Roman'; font-size:10pt">&nbsp;</span></p>
+                                        </td>
+                                        <td style="vertical-align:middle; width:35.55pt"><p style="margin:0pt"><span
+                                                style="font-family:'Times New Roman'; font-size:10pt">&nbsp;</span></p>
+                                        </td>
+                                        <td style="vertical-align:middle; width:78.05pt"><p style="margin:0pt"><span
+                                                style="font-family:'Times New Roman'; font-size:10pt">&nbsp;</span></p>
+                                        </td>
+                                    </tr>
+                                    <tr style="height:0pt">
+                                        <td style="width:71.65pt; border:none"></td>
+                                        <td style="width:56.7pt; border:none"></td>
+                                        <td style="width:14.15pt; border:none"></td>
+                                        <td style="width:71pt; border:none"></td>
+                                        <td style="width:35.45pt; border:none"></td>
+                                        <td style="width:21.5pt; border:none"></td>
+                                        <td style="width:21.05pt; border:none"></td>
+                                        <td style="width:20.4pt; border:none"></td>
+                                        <td style="width:15pt; border:none"></td>
+                                        <td style="width:21.15pt; border:none"></td>
+                                        <td style="width:35.55pt; border:none"></td>
+                                        <td style="width:78.05pt; border:none"></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                                <p style="margin:0pt; text-align:center"><span style="font-family:宋体; font-size:12pt">&nbsp;</span>
+                                </p>
+                                <p style="margin:0pt; text-align:center"><span style="font-family:宋体; font-size:12pt">&nbsp;</span>
+                                </p>
+                                <p style="margin:0pt; text-align:center"><br
+                                        style="mso-column-break-before:always; clear:both"></p>
+                                <table cellspacing="0" cellpadding="0"
+                                       style="border-collapse:collapse; margin-left:0pt">
+                                    <tbody>
+                                    <tr style="height:60pt">
+                                        <td colspan="7"
+                                            style="border: 0.75pt solid #000000;padding-left:4.68pt; padding-right:4.68pt; vertical-align:middle; width:450.2pt">
+                                            <p style="margin:0pt; text-align:center"><span
+                                                    style="font-family:宋体; font-size:20pt; font-weight:bold">学习简历</span>
+                                            </p></td>
+                                    </tr>
+                                    <tr style="height:54.75pt">
+                                        <td style="border: 0.75pt solid #000000;padding-left:4.68pt; padding-right:4.68pt; vertical-align:middle; width:53.3pt">
+                                            <p style="margin:0pt; text-align:center"><span
+                                                    style="font-family:宋体; font-size:12pt; font-weight:bold">开始年月</span>
+                                            </p></td>
+                                        <td style="border: 0.75pt solid #000000;padding-left:4.68pt; padding-right:4.68pt; vertical-align:middle; width:53.7pt">
+                                            <p style="margin:0pt; text-align:center"><span
+                                                    style="font-family:宋体; font-size:12pt; font-weight:bold">结束年月</span>
+                                            </p></td>
+                                        <td style="border: 0.75pt solid #000000;padding-left:4.68pt; padding-right:4.68pt; vertical-align:middle; width:32.4pt">
+                                            <p style="margin:0pt; text-align:center"><span
+                                                    style="font-family:宋体; font-size:12pt; font-weight:bold">学历</span>
+                                            </p></td>
+                                        <td style="border: 0.75pt solid #000000;padding-left:4.68pt; padding-right:4.68pt; vertical-align:middle; width:53.7pt">
+                                            <p style="margin:0pt; text-align:center"><span
+                                                    style="font-family:宋体; font-size:12pt; font-weight:bold">毕业</span>
+                                            </p>
+                                            <p style="margin:0pt; text-align:center"><span
+                                                    style="font-family:宋体; font-size:12pt; font-weight:bold">学校</span>
+                                            </p></td>
+                                        <td style="border: 0.75pt solid #000000;padding-left:4.68pt; padding-right:4.68pt; vertical-align:middle; width:89.15pt">
+                                            <p style="margin:0pt; text-align:center"><span
+                                                    style="font-family:宋体; font-size:12pt; font-weight:bold">专业</span>
+                                            </p></td>
+                                        <td style="border: 0.75pt solid #000000;padding-left:4.68pt; padding-right:4.68pt; vertical-align:middle; width:39.5pt">
+                                            <p style="margin:0pt; text-align:center"><span
+                                                    style="font-family:宋体; font-size:12pt; font-weight:bold">学位</span>
+                                            </p></td>
+                                        <td style="border: 0.75pt solid #000000;padding-left:4.68pt; padding-right:4.68pt; vertical-align:middle; width:67.85pt">
+                                            <p style="margin:0pt; text-align:center"><span
+                                                    style="font-family:宋体; font-size:12pt; font-weight:bold">历史学历/</span>
+                                            </p>
+                                            <p style="margin:0pt; text-align:center"><span
+                                                    style="font-family:宋体; font-size:12pt; font-weight:bold">第一学历/</span>
+                                            </p>
+                                            <p style="margin:0pt; text-align:center"><span
+                                                    style="font-family:宋体; font-size:12pt; font-weight:bold">现学历</span>
+                                            </p></td>
+                                    </tr>
+                                    {% if employee.eductions.all.count > 0 %}
+                                        {% for i in employee.eductions.all %}
+                                            <tr style="height:37.5pt">
+                                                <td style="border: 0.75pt solid #000000;padding-left:4.68pt; padding-right:4.68pt; vertical-align:middle; width:53.3pt">
+                                                    <p style="margin:0pt; text-align:center"><span
+                                                            style="font-family:宋体; font-size:12pt">{% if i.start_date %}{{ i.start_date }}{% endif %}</span></p></td>
+                                                <td style="border: 0.75pt solid #000000;padding-left:4.68pt; padding-right:4.68pt; vertical-align:middle; width:53.7pt">
+                                                    <p style="margin:0pt; text-align:center"><span
+                                                            style="font-family:宋体; font-size:12pt">{% if i.end_date %}{{ i.end_date }}{% endif %}</span></p></td>
+                                                <td style="border: 0.75pt solid #000000;padding-left:4.68pt; padding-right:4.68pt; vertical-align:middle; width:32.4pt">
+                                                    <p style="margin:0pt; text-align:center"><span
+                                                            style="font-family:宋体; font-size:12pt">{% if i.qualification %}{{ i.qualification }}{% endif %}</span></p></td>
+                                                <td style="border: 0.75pt solid #000000;padding-left:4.68pt; padding-right:4.68pt; vertical-align:middle; width:53.7pt">
+                                                    <p style="margin:0pt; text-align:center"><span
+                                                            style="font-family:宋体; font-size:12pt">{% if i.graduate_from %}{{ i.graduate_from }}{% endif %}</span></p></td>
+                                                <td style="border: 0.75pt solid #000000;padding-left:4.68pt; padding-right:4.68pt; vertical-align:middle; width:89.15pt">
+                                                    <p style="margin:0pt; text-align:center"><span
+                                                            style="font-family:宋体; font-size:12pt">{% if i.major %}{{ i.major }}{% endif %}</span></p></td>
+                                                <td style="border: 0.75pt solid #000000;padding-left:4.68pt; padding-right:4.68pt; vertical-align:middle; width:39.5pt">
+                                                    <p style="margin:0pt; text-align:center"><span
+                                                            style="font-family:宋体; font-size:12pt">{% if i.degree %}{{ i.degree }}{% endif %}</span></p></td>
+                                                <td style="border: 0.75pt solid #000000;padding-left:4.68pt; padding-right:4.68pt; vertical-align:middle; width:67.85pt">
+                                                    <p style="margin:0pt; text-align:center"><span
+                                                            style="font-family:宋体; font-size:12pt">{% if i.type %}{{ i.type }}{% endif %}</span></p></td>
+                                            </tr>
+                                        {% endfor %}
+                                    {% endif %}
+                                    <tr style="height:37.5pt">
+                                        <td style="border: 0.75pt solid #000000;padding-left:4.68pt; padding-right:4.68pt; vertical-align:middle; width:53.3pt">
+                                            <p style="margin:0pt; text-align:center"><span
+                                                    style="font-family:宋体; font-size:12pt">&nbsp;</span></p></td>
+                                        <td style="border: 0.75pt solid #000000;padding-left:4.68pt; padding-right:4.68pt; vertical-align:middle; width:53.7pt">
+                                            <p style="margin:0pt; text-align:center"><span
+                                                    style="font-family:宋体; font-size:12pt">&nbsp;</span></p></td>
+                                        <td style="border: 0.75pt solid #000000;padding-left:4.68pt; padding-right:4.68pt; vertical-align:middle; width:32.4pt">
+                                            <p style="margin:0pt; text-align:center"><span
+                                                    style="font-family:宋体; font-size:12pt">&nbsp;</span></p></td>
+                                        <td style="border: 0.75pt solid #000000;padding-left:4.68pt; padding-right:4.68pt; vertical-align:middle; width:53.7pt">
+                                            <p style="margin:0pt; text-align:center"><span
+                                                    style="font-family:宋体; font-size:12pt">&nbsp;</span></p></td>
+                                        <td style="border: 0.75pt solid #000000;padding-left:4.68pt; padding-right:4.68pt; vertical-align:middle; width:89.15pt">
+                                            <p style="margin:0pt; text-align:center"><span
+                                                    style="font-family:宋体; font-size:12pt">&nbsp;</span></p></td>
+                                        <td style="border: 0.75pt solid #000000;padding-left:4.68pt; padding-right:4.68pt; vertical-align:middle; width:39.5pt">
+                                            <p style="margin:0pt; text-align:center"><span
+                                                    style="font-family:宋体; font-size:12pt">&nbsp;</span></p></td>
+                                        <td style="border: 0.75pt solid #000000;padding-left:4.68pt; padding-right:4.68pt; vertical-align:middle; width:67.85pt">
+                                            <p style="margin:0pt; text-align:center"><span
+                                                    style="font-family:宋体; font-size:12pt">&nbsp;</span></p></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="vertical-align:middle; width:63.4pt"><p style="margin:0pt"><span
+                                                style="font-family:'Times New Roman'; font-size:10pt">&nbsp;</span></p>
+                                        </td>
+                                        <td style="vertical-align:middle; width:63.8pt"><p style="margin:0pt"><span
+                                                style="font-family:'Times New Roman'; font-size:10pt">&nbsp;</span></p>
+                                        </td>
+                                        <td style="vertical-align:middle; width:42.5pt"><p style="margin:0pt"><span
+                                                style="font-family:'Times New Roman'; font-size:10pt">&nbsp;</span></p>
+                                        </td>
+                                        <td style="vertical-align:middle; width:63.8pt"><p style="margin:0pt"><span
+                                                style="font-family:'Times New Roman'; font-size:10pt">&nbsp;</span></p>
+                                        </td>
+                                        <td style="vertical-align:middle; width:99.25pt"><p style="margin:0pt"><span
+                                                style="font-family:'Times New Roman'; font-size:10pt">&nbsp;</span></p>
+                                        </td>
+                                        <td style="vertical-align:middle; width:49.6pt"><p style="margin:0pt"><span
+                                                style="font-family:'Times New Roman'; font-size:10pt">&nbsp;</span></p>
+                                        </td>
+                                        <td style="vertical-align:middle; width:77.95pt"><p style="margin:0pt"><span
+                                                style="font-family:'Times New Roman'; font-size:10pt">&nbsp;</span></p>
+                                        </td>
+                                    </tr>
+                                    <tr style="height:0pt">
+                                        <td style="width:58.7pt; border:none"></td>
+                                        <td style="width:59.05pt; border:none"></td>
+                                        <td style="width:40.15pt; border:none"></td>
+                                        <td style="width:59.05pt; border:none"></td>
+                                        <td style="width:90.45pt; border:none"></td>
+                                        <td style="width:46.45pt; border:none"></td>
+                                        <td style="width:71.55pt; border:none"></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                                <p style="margin:0pt"><span style="font-family:宋体; font-size:16pt; font-weight:bold">&nbsp;</span>
+                                </p>
+                                <p style="margin:0pt; text-align:center"><span
+                                        style="font-family:宋体; font-size:16pt; font-weight:bold">&nbsp;</span></p>
+                                <p style="margin:0pt; text-align:center"><br
+                                        style="page-break-before:always; clear:both"></p>
+                                <table cellspacing="0" cellpadding="0"
+                                       style="border-collapse:collapse; margin-left:0pt">
+                                    <tbody>
+                                    <tr style="height:63.3pt">
+                                        <td colspan="4"
+                                            style="border: 0.75pt solid #000000;padding-left:4.68pt; padding-right:4.68pt; vertical-align:middle; width:450.2pt">
+                                            <p style="margin:0pt; text-align:center"><span
+                                                    style="font-family:宋体; font-size:20pt; font-weight:bold">本单位工作经历</span>
+                                            </p></td>
+                                    </tr>
+                                    <tr style="height:43.5pt">
+                                        <td style="border: 0.75pt solid #000000;padding-left:4.68pt; padding-right:4.68pt; vertical-align:middle">
+                                            <p style="margin:0pt; text-align:center"><span
+                                                    style="font-family:宋体; font-size:12pt; font-weight:bold">开始年月</span>
+                                            </p></td>
+                                        <td style="border: 0.75pt solid #000000;padding-left:4.68pt; padding-right:4.68pt; vertical-align:middle; width:73.8pt">
+                                            <p style="margin:0pt; text-align:center"><span
+                                                    style="font-family:宋体; font-size:12pt; font-weight:bold">结束年月</span>
+                                            </p></td>
+                                        <td style="border: 0.75pt solid #000000;padding-left:4.68pt; padding-right:4.68pt; vertical-align:middle; width:103.3pt">
+                                            <p style="margin:0pt; text-align:center"><span
+                                                    style="font-family:宋体; font-size:12pt; font-weight:bold">单位</span>
+                                            </p></td>
+                                        <td style="border: 0.75pt solid #000000;padding-left:4.68pt; padding-right:4.68pt; vertical-align:middle; width:174.15pt">
+                                            <p style="margin:0pt; text-align:center"><span
+                                                    style="font-family:宋体; font-size:12pt; font-weight:bold">职务或岗位</span>
+                                            </p></td>
+                                    </tr>
+                                    {% if employee.work_experiences.all.count > 0 %}
+                                        {% for i in employee.work_experiences.all %}
+                                    <tr style="height:30pt">
+                                        <td style="border: 0.75pt solid #000000;padding-left:4.68pt; padding-right:4.68pt; vertical-align:middle">
+                                            <p style="margin:0pt; text-align:center"><span
+                                                    style="font-family:宋体; font-size:12pt">{% if i.start_date %}{{ i.start_date }}{% endif %}</span></p></td>
+                                        <td style="border: 0.75pt solid #000000;padding-left:4.68pt; padding-right:4.68pt; vertical-align:middle; width:73.8pt">
+                                            <p style="margin:0pt; text-align:center"><span
+                                                    style="font-family:宋体; font-size:12pt">{% if i.end_date %}{{ i.end_date }}{% endif %}</span></p></td>
+                                        <td style="border: 0.75pt solid #000000;padding-left:4.68pt; padding-right:4.68pt; vertical-align:middle; width:103.3pt">
+                                            <p style="margin:0pt; text-align:center"><span
+                                                    style="font-family:宋体; font-size:12pt">{% if i.department.name %}{{ i.department.name }}{% endif %}</span></p></td>
+                                        <td style="border: 0.75pt solid #000000;padding-left:4.68pt; padding-right:4.68pt; vertical-align:middle; width:174.15pt">
+                                            <p style="margin:0pt; text-align:center"><span
+                                                    style="font-family:宋体; font-size:12pt">{% if i.job %}{{ i.job }}{% endif %}</span></p></td>
+                                    </tr>
+                                        {% endfor %}
+                                    {% endif %}
+                                    <tr style="height:30pt">
+                                        <td style="border: 0.75pt solid #000000;padding-left:4.68pt; padding-right:4.68pt; vertical-align:middle">
+                                            <p style="margin:0pt"><span
+                                                    style="font-family:'Times New Roman'; font-size:10pt">&nbsp;</span>
+                                            </p></td>
+                                        <td style="border: 0.75pt solid #000000;padding-left:4.68pt; padding-right:4.68pt; vertical-align:middle; width:73.8pt">
+                                            <p style="margin:0pt"><span
+                                                    style="font-family:'Times New Roman'; font-size:10pt">&nbsp;</span>
+                                            </p></td>
+                                        <td style="border: 0.75pt solid #000000;padding-left:4.68pt; padding-right:4.68pt; vertical-align:middle; width:103.3pt">
+                                            <p style="margin:0pt"><span
+                                                    style="font-family:'Times New Roman'; font-size:10pt">&nbsp;</span>
+                                            </p></td>
+                                        <td style="border: 0.75pt solid #000000;padding-left:4.68pt; padding-right:4.68pt; vertical-align:middle; width:174.15pt">
+                                            <p style="margin:0pt; text-align:center"><span
+                                                    style="font-family:宋体; font-size:12pt">&nbsp;</span></p></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="vertical-align:middle; width:78.75pt"><p style="margin:0pt"><span
+                                                style="font-family:'Times New Roman'; font-size:10pt">&nbsp;</span></p>
+                                        </td>
+                                        <td style="vertical-align:middle; width:83.9pt"><p style="margin:0pt"><span
+                                                style="font-family:'Times New Roman'; font-size:10pt">&nbsp;</span></p>
+                                        </td>
+                                        <td style="vertical-align:middle; width:113.4pt"><p style="margin:0pt"><span
+                                                style="font-family:'Times New Roman'; font-size:10pt">&nbsp;</span></p>
+                                        </td>
+                                        <td style="vertical-align:middle; width:184.25pt"><p style="margin:0pt"><span
+                                                style="font-family:'Times New Roman'; font-size:10pt">&nbsp;</span></p>
+                                        </td>
+                                    </tr>
+                                    <tr style="height:0pt">
+                                        <td style="width:73.4pt; border:none"></td>
+                                        <td style="width:78.1pt; border:none"></td>
+                                        <td style="width:104.85pt; border:none"></td>
+                                        <td style="width:169.05pt; border:none"></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                                <p style="margin:0pt; text-align:center"><span style="font-family:宋体; font-size:12pt">&nbsp;</span>
+                                </p>
+                                <p style="margin:0pt; text-align:center"><span
+                                        style="font-family:宋体; font-size:16pt; font-weight:bold">&nbsp;</span></p>
+                                <p style="margin:0pt 0pt 0pt 147pt; text-align:center; text-indent:21pt"><br
+                                        style="page-break-before:always; clear:both"></p>
+                                <table cellspacing="0" cellpadding="0"
+                                       style="border-collapse:collapse; margin-left:0pt">
+                                    <tbody>
+                                    <tr style="height:60pt">
+                                        <td colspan="6"
+                                            style="border: 0.75pt solid #000000;padding-left:4.68pt; padding-right:4.68pt; vertical-align:middle; width:450.2pt">
+                                            <p style="margin:0pt; text-align:center"><span
+                                                    style="font-family:宋体; font-size:20pt; font-weight:bold">社会关系</span>
+                                            </p></td>
+                                    </tr>
+                                    <tr style="height:54.75pt">
+                                        <td style="border: 0.75pt solid #000000;padding-left:4.68pt; padding-right:4.68pt; vertical-align:middle">
+                                            <p style="margin:0pt; text-align:center"><span
+                                                    style="font-family:宋体; font-size:12pt; font-weight:bold">姓名</span>
+                                            </p></td>
+                                        <td style="border: 0.75pt solid #000000;padding-left:4.68pt; padding-right:4.68pt; vertical-align:middle">
+                                            <p style="margin:0pt; text-align:center"><span
+                                                    style="font-family:宋体; font-size:12pt; font-weight:bold">与本人关系</span>
+                                            </p></td>
+                                        <td style="border: 0.75pt solid #000000;padding-left:4.68pt; padding-right:4.68pt; vertical-align:middle">
+                                            <p style="margin:0pt; text-align:center"><span
+                                                    style="font-family:宋体; font-size:12pt; font-weight:bold">出生年月</span>
+                                            </p></td>
+                                        <td style="border: 0.75pt solid #000000;padding-left:4.68pt; padding-right:4.68pt; vertical-align:middle; width:38.35pt">
+                                            <p style="margin:0pt; text-align:center"><span
+                                                    style="font-family:宋体; font-size:12pt; font-weight:bold">政治</span>
+                                            </p>
+                                            <p style="margin:0pt; text-align:center"><span
+                                                    style="font-family:宋体; font-size:12pt; font-weight:bold">面貌</span>
+                                            </p></td>
+                                        <td style="border: 0.75pt solid #000000;padding-left:4.68pt; padding-right:4.68pt; vertical-align:middle; width:110.4pt">
+                                            <p style="margin:0pt; text-align:center"><span
+                                                    style="font-family:宋体; font-size:12pt; font-weight:bold">毕业院校</span><br><span
+                                                    style="font-family:宋体; font-size:12pt; font-weight:bold">及专业</span>
+                                            </p></td>
+                                        <td style="border: 0.75pt solid #000000;padding-left:4.68pt; padding-right:4.68pt; vertical-align:middle; width:124.55pt">
+                                            <p style="margin:0pt; text-align:center"><span
+                                                    style="font-family:宋体; font-size:12pt; font-weight:bold">工作单位</span><br><span
+                                                    style="font-family:宋体; font-size:12pt; font-weight:bold">及职务</span>
+                                            </p></td>
+                                    </tr>
+                                    {% if employee.relationships.all.count > 0 %}
+                                    {% for i in employee.relationships.all %}
+                                    <tr style="height:37.5pt">
+                                        <td style="border: 0.75pt solid #000000;padding-left:4.68pt; padding-right:4.68pt; vertical-align:middle">
+                                            <p style="margin:0pt; text-align:center"><span
+                                                    style="font-family:宋体; font-size:12pt">{% if i.name %}{{ i.name }}{% endif %}</span></p></td>
+                                        <td style="border: 0.75pt solid #000000;padding-left:4.68pt; padding-right:4.68pt; vertical-align:middle">
+                                            <p style="margin:0pt; text-align:center"><span
+                                                    style="font-family:宋体; font-size:12pt">{% if i.relation %}{{ i.relation }}{% endif %}</span></p></td>
+                                        <td style="border: 0.75pt solid #000000;padding-left:4.68pt; padding-right:4.68pt; vertical-align:middle">
+                                            <p style="margin:0pt; text-align:center"><span
+                                                    style="font-family:宋体; font-size:12pt">{% if i.birthday %}{{ i.birthday }}{% endif %}</span></p></td>
+                                        <td style="border: 0.75pt solid #000000;padding-left:4.68pt; padding-right:4.68pt; vertical-align:middle; width:38.35pt">
+                                            <p style="margin:0pt; text-align:center"><span
+                                                    style="font-family:宋体; font-size:12pt">{% if i.political_status %}{{ i.political_status }}{% endif %}</span></p></td>
+                                        <td style="border: 0.75pt solid #000000;padding-left:4.68pt; padding-right:4.68pt; vertical-align:middle; width:110.4pt">
+                                            <p style="margin:0pt; text-align:center"><span
+                                                    style="font-family:宋体; font-size:12pt">{% if i.graduate_from %}{{ i.graduate_from }}{% endif %}</span></p></td>
+                                        <td style="border: 0.75pt solid #000000;padding-left:4.68pt; padding-right:4.68pt; vertical-align:middle; width:124.55pt">
+                                            <p style="margin:0pt; text-align:center"><span
+                                                    style="font-family:宋体; font-size:12pt">{% if i.job %}{{ i.job }}{% endif %}</span></p></td>
+                                    </tr>
+                                    {% endfor %}
+                                    {% endif %}
+                                    <tr style="height:37.5pt">
+                                        <td style="border: 0.75pt solid #000000;padding-left:4.68pt; padding-right:4.68pt; vertical-align:middle">
+                                            <p style="margin:0pt; text-align:center"><span
+                                                    style="font-family:宋体; font-size:12pt">&nbsp;</span></p></td>
+                                        <td style="border: 0.75pt solid #000000;padding-left:4.68pt; padding-right:4.68pt; vertical-align:middle">
+                                            <p style="margin:0pt; text-align:center"><span
+                                                    style="font-family:宋体; font-size:12pt">&nbsp;</span></p></td>
+                                        <td style="border: 0.75pt solid #000000;padding-left:4.68pt; padding-right:4.68pt; vertical-align:middle">
+                                            <p style="margin:0pt; text-align:center"><span
+                                                    style="font-family:宋体; font-size:12pt">&nbsp;</span></p></td>
+                                        <td style="border: 0.75pt solid #000000;padding-left:4.68pt; padding-right:4.68pt; vertical-align:middle; width:38.35pt">
+                                            <p style="margin:0pt; text-align:center"><span
+                                                    style="font-family:宋体; font-size:12pt">&nbsp;</span></p></td>
+                                        <td style="border: 0.75pt solid #000000;padding-left:4.68pt; padding-right:4.68pt; vertical-align:middle; width:110.4pt">
+                                            <p style="margin:0pt; text-align:center"><span
+                                                    style="font-family:宋体; font-size:12pt">&nbsp;</span></p></td>
+                                        <td style="border: 0.75pt solid #000000;padding-left:4.68pt; padding-right:4.68pt; vertical-align:middle; width:124.55pt">
+                                            <p style="margin:0pt; text-align:center"><span
+                                                    style="font-family:宋体; font-size:12pt">&nbsp;</span></p></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="vertical-align:middle; width:59.85pt"><p style="margin:0pt"><span
+                                                style="font-family:'Times New Roman'; font-size:10pt">&nbsp;</span></p>
+                                        </td>
+                                        <td style="vertical-align:middle; width:56.5pt"><p style="margin:0pt"><span
+                                                style="font-family:'Times New Roman'; font-size:10pt">&nbsp;</span></p>
+                                        </td>
+                                        <td style="vertical-align:middle; width:40.35pt"><p style="margin:0pt"><span
+                                                style="font-family:'Times New Roman'; font-size:10pt">&nbsp;</span></p>
+                                        </td>
+                                        <td style="vertical-align:middle; width:48.45pt"><p style="margin:0pt"><span
+                                                style="font-family:'Times New Roman'; font-size:10pt">&nbsp;</span></p>
+                                        </td>
+                                        <td style="vertical-align:middle; width:120.5pt"><p style="margin:0pt"><span
+                                                style="font-family:'Times New Roman'; font-size:10pt">&nbsp;</span></p>
+                                        </td>
+                                        <td style="vertical-align:middle; width:134.65pt"><p style="margin:0pt"><span
+                                                style="font-family:'Times New Roman'; font-size:10pt">&nbsp;</span></p>
+                                        </td>
+                                    </tr>
+                                    <tr style="height:0pt">
+                                        <td style="width:52.85pt; border:none"></td>
+                                        <td style="width:61.4pt; border:none"></td>
+                                        <td style="width:51.6pt; border:none"></td>
+                                        <td style="width:43.55pt; border:none"></td>
+                                        <td style="width:102.25pt; border:none"></td>
+                                        <td style="width:113.75pt; border:none"></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                                <p style="margin:0pt; text-align:center"><span style="font-family:宋体; font-size:12pt">&nbsp;</span>
+                                </p>
+                                <p style="margin:0pt; text-align:center"><br
+                                        style="page-break-before:always; clear:both"></p>
+                                <table cellspacing="0" cellpadding="0"
+                                       style="border-collapse:collapse; margin-left:0pt">
+                                    <tbody>
+                                    <tr style="height:14.25pt">
+                                        <td style="padding-left:5.4pt; padding-right:5.4pt; vertical-align:middle"><p
+                                                style="margin:0pt; text-align:center"><span
+                                                style="font-family:宋体; font-size:12pt">&nbsp;</span></p></td>
+                                        <td style="padding-left:5.4pt; padding-right:5.4pt; vertical-align:middle"><p
+                                                style="margin:0pt; text-align:center"><span
+                                                style="font-family:宋体; font-size:12pt">&nbsp;</span></p></td>
+                                        <td style="padding-left:5.4pt; padding-right:5.4pt; vertical-align:middle"><p
+                                                style="margin:0pt; text-align:center"><span
+                                                style="font-family:宋体; font-size:12pt">&nbsp;</span></p></td>
+                                        <td style="padding-left:5.4pt; padding-right:5.4pt; vertical-align:middle"><p
+                                                style="margin:0pt; text-align:center"><span
+                                                style="font-family:宋体; font-size:12pt">&nbsp;</span></p></td>
+                                        <td style="padding-left:5.4pt; padding-right:5.4pt; vertical-align:middle"><p
+                                                style="margin:0pt; text-align:center"><span
+                                                style="font-family:宋体; font-size:12pt">&nbsp;</span></p></td>
+                                        <td style="padding-left:5.4pt; padding-right:5.4pt; vertical-align:middle"><p
+                                                style="margin:0pt; text-align:center"><span
+                                                style="font-family:宋体; font-size:12pt">&nbsp;</span></p></td>
+                                        <td style="padding-left:5.4pt; padding-right:5.4pt; vertical-align:middle"><p
+                                                style="margin:0pt; text-align:center"><span
+                                                style="font-family:宋体; font-size:12pt">&nbsp;</span></p></td>
+                                        <td style="border-bottom: 0.75pt solid #000000;vertical-align:top; width:82.7pt">
+                                            <p style="margin:0pt"><span
+                                                    style="font-family:'Times New Roman'; font-size:10pt">&nbsp;</span>
+                                            </p></td>
+                                    </tr>
+                                    <tr style="height:333pt">
+                                        <td colspan="8"
+                                            style="border: 0.75pt solid #000000;padding-left:4.68pt; padding-right:4.68pt; vertical-align:top; width:450.6pt">
+                                            <p style="margin:0pt; text-align:center"><br><br><span
+                                                    style="font-family:宋体; font-size:16pt; font-weight:bold; text-decoration:underline">其 他 需 要 说 明 的 情 况</span>
+                                            </p>
+                                            <p style="margin:0pt; text-align:center"><span
+                                                    style="font-family:宋体; font-size:16pt; font-weight:bold">&nbsp;</span>
+                                            </p>
+                                            <p style="margin:0pt; text-align:center"><span
+                                                    style="font-family:宋体; font-size:16pt; font-weight:bold">&nbsp;</span>
+                                            </p>
+                                            <p style="margin:0pt"><span style="font-family:宋体; font-size:12pt">&nbsp;&nbsp;{% if employee.remarks %}{{ employee.remarks.remark }}{% endif %}</span>
+                                            </p></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="vertical-align:middle; width:54pt"><p style="margin:0pt"><span
+                                                style="font-family:'Times New Roman'; font-size:10pt">&nbsp;</span></p>
+                                        </td>
+                                        <td style="vertical-align:middle; width:54pt"><p style="margin:0pt"><span
+                                                style="font-family:'Times New Roman'; font-size:10pt">&nbsp;</span></p>
+                                        </td>
+                                        <td style="vertical-align:middle; width:54pt"><p style="margin:0pt"><span
+                                                style="font-family:'Times New Roman'; font-size:10pt">&nbsp;</span></p>
+                                        </td>
+                                        <td style="vertical-align:middle; width:54pt"><p style="margin:0pt"><span
+                                                style="font-family:'Times New Roman'; font-size:10pt">&nbsp;</span></p>
+                                        </td>
+                                        <td style="vertical-align:middle; width:54pt"><p style="margin:0pt"><span
+                                                style="font-family:'Times New Roman'; font-size:10pt">&nbsp;</span></p>
+                                        </td>
+                                        <td style="vertical-align:middle; width:54pt"><p style="margin:0pt"><span
+                                                style="font-family:'Times New Roman'; font-size:10pt">&nbsp;</span></p>
+                                        </td>
+                                        <td style="vertical-align:middle; width:54pt"><p style="margin:0pt"><span
+                                                style="font-family:'Times New Roman'; font-size:10pt">&nbsp;</span></p>
+                                        </td>
+                                        <td style="vertical-align:middle; width:82.7pt"><p style="margin:0pt"><span
+                                                style="font-family:'Times New Roman'; font-size:10pt">&nbsp;</span></p>
+                                        </td>
+                                    </tr>
+                                    <tr style="height:0pt">
+                                        <td style="width:49.85pt; border:none"></td>
+                                        <td style="width:49.85pt; border:none"></td>
+                                        <td style="width:49.85pt; border:none"></td>
+                                        <td style="width:49.85pt; border:none"></td>
+                                        <td style="width:49.85pt; border:none"></td>
+                                        <td style="width:49.85pt; border:none"></td>
+                                        <td style="width:49.85pt; border:none"></td>
+                                        <td style="width:71.75pt; border:none"></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                                <p style="margin:0pt; text-align:center"><span
+                                        style="font-family:宋体; font-size:16pt; font-weight:bold">&nbsp;</span></p>
+                                <p style="margin:0pt; text-align:center; text-indent:20.6pt"><span
+                                        style="font-family:宋体; font-size:16pt; font-weight:bold">&nbsp;</span></p></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.box-body -->
+        </div>
+        <!-- /.box -->
+        <br/>
+    </div>
+
+    <script type="text/javascript" src="{% static 'base_site/plugins/jQuery/FileSaver.js' %}"></script>
+    <script type="text/javascript" src="{% static 'base_site/plugins/jQuery/jquery.wordexport.js' %}"></script>
+
+    <script type="text/javascript">
+        jQuery(document).ready(function ($) {
+            $("a.jquery-word-export").click(function (event) {
+                $("#pagecontent").wordExport(fileName='{% if employee.name %}{{ employee.name }}{% endif %}-员工档案');
+            });
+        });
+    </script>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends 'base_site/base.html' %}
+{% load static %}
+{% block user_date_joined %}
+    {{ request.user.date_joined }}
+{% endblock %}
+{% block user_avatar %}
+    {{ request.user.avatar.url }}
+{% endblock %}
+{% block user_name %}
+    {{ request.user.name_cn }}
+{% endblock %}
+{% block user_avatar2 %}
+    {{ request.user.avatar.url }}
+{% endblock %}
+{% block user_name2 %}
+    {{ request.user.name_cn }}
+{% endblock %}
+{% block main_content %}
+{% endblock %}

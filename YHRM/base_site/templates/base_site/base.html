@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+{% load static %}
+<!--
+This is a starter template page. Use this page to start your new project from
+scratch. This page gets rid of all links and provides the needed markup only.
+-->
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="人事管理系统">
+    <meta name="author" content="杨刚">
+    <title>{% block title %}人事管理系系统{% endblock %}</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    {% include 'base_site/base/head_css_and_scripts.html' %}
+    {% block head %}{% endblock %}
+</head>
+<!--
+BODY TAG OPTIONS:
+=================
+Apply one or more of the following classes to get the
+desired effect
+|---------------------------------------------------------|
+| SKINS         | skin-blue                               |
+|               | skin-black                              |
+|               | skin-purple                             |
+|               | skin-yellow                             |
+|               | skin-red                                |
+|               | skin-green                              |
+|---------------------------------------------------------|
+|LAYOUT OPTIONS | fixed                                   |
+|               | layout-boxed                            |
+|               | layout-top-nav                          |
+|               | sidebar-collapse                        |
+|               | sidebar-mini                            |
+|---------------------------------------------------------|
+-->
+<body class="hold-transition {% block skin %}skin-blue{% endblock %} {% block sidebar-mini %}sidebar-mini{% endblock %} {% block sidebar-collapse %}{% endblock %} {% block layout %}fixed{% endblock %} ">
+<div class="wrapper">
+
+    <!-- Main Header -->
+    {% block main_header %}
+        <header class="main-header">
+
+            <!-- Logo -->
+            <a href="/" class="logo">
+                <!-- mini logo for sidebar mini 50x50 pixels -->
+                <span class="logo-mini"><b>Y</b>hrm</span>
+                <!-- logo for regular state and mobile devices -->
+                <span class="logo-lg">人事管理系统</span>
+            </a>
+
+            <!-- Header Navbar -->
+            <nav class="navbar navbar-static-top" role="navigation">
+                <!-- Sidebar toggle button-->
+                <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                    <span class="sr-only">Toggle navigation</span>
+                </a>
+                <!-- Navbar Right Menu -->
+                <div class="navbar-custom-menu">
+                    <ul class="nav navbar-nav">
+                        {#                        <!-- Messages: style can be found in dropdown.less-->#}
+                        {#                        <li class="dropdown messages-menu">#}
+                        {#                            <!-- Menu toggle button -->#}
+                        {#                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">#}
+                        {#                                <i class="fa fa-envelope-o"></i>#}
+                        {#                                <span class="label label-success">4</span>#}
+                        {#                            </a>#}
+                        {#                            <ul class="dropdown-menu">#}
+                        {#                                <li class="header">You have 4 messages</li>#}
+                        {#                                <li>#}
+                        {#                                    <!-- inner menu: contains the messages -->#}
+                        {#                                    <ul class="menu">#}
+                        {#                                        <li><!-- start message -->#}
+                        {#                                            <a href="#">#}
+                        {#                                                <div class="pull-left">#}
+                        {#                                                    <!-- User Image -->#}
+                        {#                                                    <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">#}
+                        {#                                                </div>#}
+                        {#                                                <!-- Message title and timestamp -->#}
+                        {#                                                <h4>#}
+                        {#                                                    Support Team#}
+                        {#                                                    <small><i class="fa fa-clock-o"></i> 5 mins</small>#}
+                        {#                                                </h4>#}
+                        {#                                                <!-- The message -->#}
+                        {#                                                <p>Why not buy a new awesome theme?</p>#}
+                        {#                                            </a>#}
+                        {#                                        </li>#}
+                        {#                                        <!-- end message -->#}
+                        {#                                    </ul>#}
+                        {#                                    <!-- /.menu -->#}
+                        {#                                </li>#}
+                        {#                                <li class="footer"><a href="#">See All Messages</a></li>#}
+                        {#                            </ul>#}
+                        {#                        </li>#}
+                        {#                        <!-- /.messages-menu -->#}
+                        {#                        <!-- Notifications Menu -->#}
+                        {#                        <li class="dropdown notifications-menu">#}
+                        {#                            <!-- Menu toggle button -->#}
+                        {#                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">#}
+                        {#                                <i class="fa fa-bell-o"></i>#}
+                        {#                                <span class="label label-warning">10</span>#}
+                        {#                            </a>#}
+                        {#                            <ul class="dropdown-menu">#}
+                        {#                                <li class="header">You have 10 notifications</li>#}
+                        {#                                <li>#}
+                        {#                                    <!-- Inner Menu: contains the notifications -->#}
+                        {#                                    <ul class="menu">#}
+                        {#                                        <li><!-- start notification -->#}
+                        {#                                            <a href="#">#}
+                        {#                                                <i class="fa fa-users text-aqua"></i> 5 new members joined today#}
+                        {#                                            </a>#}
+                        {#                                        </li>#}
+                        {#                                        <!-- end notification -->#}
+                        {#                                    </ul>#}
+                        {#                                </li>#}
+                        {#                                <li class="footer"><a href="#">View all</a></li>#}
+                        {#                            </ul>#}
+                        {#                        </li>#}
+                        {#                        <!-- Tasks Menu -->#}
+                        {#                        <li class="dropdown tasks-menu">#}
+                        {#                            <!-- Menu Toggle Button -->#}
+                        {#                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">#}
+                        {#                                <i class="fa fa-flag-o"></i>#}
+                        {#                                <span class="label label-danger">9</span>#}
+                        {#                            </a>#}
+                        {#                            <ul class="dropdown-menu">#}
+                        {#                                <li class="header">You have 9 tasks</li>#}
+                        {#                                <li>#}
+                        {#                                    <!-- Inner menu: contains the tasks -->#}
+                        {#                                    <ul class="menu">#}
+                        {#                                        <li><!-- Task item -->#}
+                        {#                                            <a href="#">#}
+                        {#                                                <!-- Task title and progress text -->#}
+                        {#                                                <h3>#}
+                        {#                                                    Design some buttons#}
+                        {#                                                    <small class="pull-right">20%</small>#}
+                        {#                                                </h3>#}
+                        {#                                                <!-- The progress bar -->#}
+                        {#                                                <div class="progress xs">#}
+                        {#                                                    <!-- Change the css width attribute to simulate progress -->#}
+                        {#                                                    <div class="progress-bar progress-bar-aqua" style="width: 20%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">#}
+                        {#                                                        <span class="sr-only">20% Complete</span>#}
+                        {#                                                    </div>#}
+                        {#                                                </div>#}
+                        {#                                            </a>#}
+                        {#                                        </li>#}
+                        {#                                        <!-- end task item -->#}
+                        {#                                    </ul>#}
+                        {#                                </li>#}
+                        {#                                <li class="footer">#}
+                        {#                                    <a href="#">View all tasks</a>#}
+                        {#                                </li>#}
+                        {#                            </ul>#}
+                        {#                        </li>#}
+                        {#                        <!-- User Account Menu -->#}
+                        {#                       #}
+
+                        <li class="dropdown user user-menu">
+                            <!-- Menu Toggle Button -->
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <!-- The user image in the navbar-->
+                                <img src={% block user_avatar %}"dist/img/user2-160x160.jpg"{% endblock %} class="user-image" alt="User Image">
+                                <!-- hidden-xs hides the username on small devices so only the image appears. -->
+                                <span class="hidden-xs">{% block user_name %}Alexander Pierce{% endblock %}</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <!-- The user image in the menu -->
+                                <li class="user-header">
+                                    <img src={% block user_avatar2 %}"dist/img/user2-160x160.jpg"{% endblock %}class="img-circle" alt="User Image">
+
+                                    <p>
+                                        {% block user_name2 %}Alexander Pierce{% endblock %}
+                                        <small>{% block user_date_joined %}Member since Nov. 2012{% endblock %}</small>
+                                    </p>
+                                </li>
+                                <!-- Menu Body -->
+                                {#                                <li class="user-body">#}
+                                {#                                    <div class="row">#}
+                                {#                                        <div class="col-xs-4 text-center">#}
+                                {#                                            <a href="#">Followers</a>#}
+                                {#                                        </div>#}
+                                {#                                        <div class="col-xs-4 text-center">#}
+                                {#                                            <a href="#">Sales</a>#}
+                                {#                                        </div>#}
+                                {#                                        <div class="col-xs-4 text-center">#}
+                                {#                                            <a href="#">Friends</a>#}
+                                {#                                        </div>#}
+                                {#                                    </div>#}
+                                {#                                    <!-- /.row -->#}
+                                {#                                </li>#}
+                                <!-- Menu Footer-->
+                                <li class="user-footer">
+                                    <div class="pull-left">
+                                        <a href="{% url 'BP_MYPROFILE' %}" class="btn btn-default btn-flat">个人信息</a>
+                                    </div>
+                                    <div class="pull-right">
+                                        <a href="{% url 'BP_LOGOUT' %}" class="btn btn-default btn-flat">登出</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                        <!-- Control Sidebar Toggle Button -->
+                        <li>
+                            <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+    {% endblock %}
+
+    <!-- Left side column. contains the logo and sidebar -->
+    {% block left_side_colum %}
+        {% include 'base_site/base/left_side_colum.html' %}
+    {% endblock %}
+
+    <!-- Content Wrapper. Contains page content -->
+
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <h1>
+                {% block content_header %}Page Header{% endblock %}
+                <small>{% block content_header_small %}Optional description{% endblock %}</small>
+            </h1>
+            <ol class="breadcrumb">
+                {% block content_breadcrumb_li %}
+                    <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
+                    <li class="active">Here</li>
+                {% endblock %}
+            </ol>
+        </section>
+        <section class="content">
+            {% block main_content %}
+                <!-- Main content -->
+
+
+                <!-- Your Page Content Here -->
+
+
+                <!-- /.content -->
+            {% endblock %}
+        </section>
+    </div>
+
+    <!-- /.content-wrapper -->
+
+    <!-- Main Footer -->
+    {% block main_footer %}
+        {% include 'base_site/base/mian_footer.html' %}
+    {% endblock %}
+
+    <!-- Control Sidebar -->
+    {% block control_sidebar %}
+        {% include 'base_site/base/control_side_bar.html' %}
+    {% endblock %}
+    <!-- /.control-sidebar -->
+
+
+</div>
+<!-- ./wrapper -->
+
+
+<!-- Optionally, you can add Slimscroll and FastClick plugins.
+     Both of these plugins are recommended to enhance the
+     user experience. Slimscroll is required when using the
+     fixed layout. -->
+
+
+<!--ie8 placeholder fix -->
+<script src="{% static 'base_site/login/assets/js/scripts.js' %}"></script>
+<script type="text/javascript">
+    supportPlaceholder='placeholder'in document.createElement('input');
+    if(!supportPlaceholder){
+        $(function(){ $('input, textarea').placeholder(); })};
+</script>
+{% block body_bottom_scripts %}{% endblock %}
+</body>
+</html>

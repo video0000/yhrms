@@ -1,0 +1,8 @@
+{% extends 'base_site/list.html' %}
+{% load debugtools_tags bootstrap static%}
+{% block content_header %}员工管理{% endblock %}
+{% block content_header_small %}花名册{% endblock %}
+{% block content_breadcrumb_li %}
+    <li class=""><a href="{% url 'BP_INDEX' %}">控制台</a></li>
+    <li class="active">花名册</li>
+{% endblock %}
